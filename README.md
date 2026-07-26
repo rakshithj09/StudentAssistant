@@ -1,123 +1,94 @@
 # Bentonville Student Assistant
 
-Bentonville Student Assistant is a planned advisory tool and course planner for students in Bentonville, Arkansas, covering both public schools and the Haas school system. It aims to help students navigate their Student Success Plan (SSP), standardized testing (ACT/SAT), and extracurriculars through personalized optimization.
+Bentonville Student Assistant is a React and Express planning tool for students in Bentonville, Arkansas. It generates a private, semester-by-semester academic schedule from student profile data, saved account data, and curated course-catalog seed data for Bentonville Public Schools and Haas Hall Academy.
 
-## What the app does
+## What the App Does
 
-**Implemented:**
-- None (The codebase is currently in its initial planning phase).
+- Creates email/password accounts with server-side sessions.
+- Stores student profiles and saved schedules in Postgres.
+- Collects grade, school system, math level, GPA, course grades, test status/scores, career cluster, rigor preference, completed courses, and extracurricular interests.
+- Generates a deterministic college-readiness schedule through 12th grade.
+- Lets students edit, save, load, and print/export generated schedules.
 
-**Planned:**
-- Provide a built-in course planner to help students develop their Student Success Plan (SSP).
-- Give personalized advice on when to start taking the ACTs or SATs (recommended the year after finishing Geometry/Algebra 2).
-- Compare ACT vs. SAT benefits and walk students through the process.
-- Offer guidance on the best extracurricular activities and when to start them.
-- Recommend optimized education routes, such as attending Haas Hall Academy for math up to Geometry/Algebra 2 (with an optional 7th-grade placement exam to skip Pre-Algebra), and then transferring to a public school to complete standardized exams.
-
-## First things to know
-
-- Read [AGENTS.md](./AGENTS.md) before any repository task. It contains the security and engineering rules for this repo.
-- The repository currently contains only reference PDFs (course catalogs and flyers). There is no active codebase, architecture, or environment configured yet.
-- When development begins, no real secrets or `.env` files should ever be committed.
-
-## Repository Map
-
-```text
-121024-Jr_High_Course_Catalog_2025-26docx1.pdf    Junior High Course Catalog reference
-HS Course Catalog 2026-2027.pdf                   High School Course Catalog reference
-SS 26 Flyer.pdf                                   Summer School Flyer reference
-```
-
-## Architecture
-
-*Requires owner confirmation.*
-
-No architecture, frontend framework, backend framework, or database is currently configured.
-
-## Main User Flows
-
-*Planned / Not yet implemented.*
-
-### Student Advisory Flow (Planned)
-- Students will input their current grade, math level, and school system.
-- The system will output a personalized route, including SSP course planning and testing timelines.
+All generated advice is informational and must be confirmed with a school counselor. Catalog entries in code are curated seed data from the provided PDF references and should be expanded/verified before relying on them for official enrollment decisions.
 
 ## Local Setup
 
-### Prerequisites
-*Unknown (Requires owner confirmation).*
+Prerequisites:
 
-### Environment
-*Not configured.*
+- Node.js 22.22+ or 24+
+- Postgres 14+
 
-## Running Locally
+Install dependencies:
 
-*Not configured.*
+```bash
+npm install
+```
 
-## API Contracts
+Create local environment settings:
 
-*Not yet implemented.*
+```bash
+cp .env.example .env
+```
+
+Update `.env` with a real local `DATABASE_URL` and a random `SESSION_SECRET` of at least 32 characters.
+
+Apply database schema:
+
+```bash
+npm run db:migrate
+```
+
+Run the frontend and API together:
+
+```bash
+npm run dev
+```
+
+The client runs at `http://localhost:5173` and proxies `/api` to the API server at `http://localhost:4000`.
+
+## API Summary
+
+Responses use `{ "data": ... }` on success and `{ "error": { "code", "message" } }` on failure.
+
+- `GET /api/health`
+- `GET /api/auth/csrf`
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/me`
+- `GET /api/profile`
+- `PUT /api/profile`
+- `POST /api/schedules/generate`
+- `GET /api/schedules`
+- `POST /api/schedules`
+- `PUT /api/schedules/:id`
+- `DELETE /api/schedules/:id`
+
+Unsafe requests require the session-bound `x-csrf-token` header. Browser calls should use the app's API client.
 
 ## Data Model
 
-| Resource | Purpose | Ownership | Read access | Write access | Sensitive fields or privacy notes |
-|---|---|---|---|---|---|
-| *None* | N/A | N/A | N/A | N/A | N/A |
+| Resource | Purpose | Ownership | Privacy notes |
+|---|---|---|---|
+| `users` | Account identity and password hash | One row per account | Never expose password hashes |
+| `session` | Server-side session storage | Session cookie | HTTP-only cookie |
+| `student_profiles` | Current planning inputs | `user_id` | Contains GPA, grades, and test scores |
+| `saved_schedules` | Saved generated plans | `user_id` | Contains profile snapshot and editable schedule |
 
-*Not yet implemented. Must be defined before collecting student data.*
+Every student-owned row is queried by authenticated `user_id`; client-submitted user IDs are not trusted.
 
-## Storage Model
+## Verification
 
-*Not configured.*
+```bash
+npm run lint
+npm run build
+npm test
+npm audit
+```
 
-## Domain-specific subsystem
+Database-backed persistence routes require a configured Postgres database for full integration verification.
 
-### Advisory Engine (Planned)
-The core logic will involve mapping student progress to Bentonville/Haas course catalogs and suggesting optimal pathways. AI/ML integration is currently *Unknown*.
+## Development Rules
 
-## Testing and Verification
-
-*Not configured.*
-
-## Development rules
-
-- Read [AGENTS.md](./AGENTS.md) before starting any work.
-- Validate all future architectural decisions with the repository owner.
-- Ensure any future student data (e.g., grades, schedules, test scores) is treated as sensitive.
-
-## Common change guides
-
-*Not yet applicable.*
-
-## Deployment summary
-
-*Not configured.*
-
-## Troubleshooting
-
-| Symptom | Likely cause | What to check |
-|---|---|---|
-| No codebase found | The project is in the planning phase | The repository currently only holds reference PDFs |
-
-## Separate applications or packages
-
-*None.*
-
-## Useful commands
-
-*None configured.*
-
-## First-week checklist
-
-1. Read `AGENTS.md` and this `README.md`.
-2. Review the reference course catalogs provided as PDFs in the repository root.
-3. Await architectural and stack decisions from the repository owner before writing code.
-
-## Known limitations
-
-- **Not implemented:** The entire application is currently planned.
-- **Requires owner confirmation:** Technology stack, deployment target, AI integrations, and database schema.
-
-## License
-
-No `LICENSE` file is present in this repository. Confirm the intended license with the repository owner before redistributing or reusing the code.
+Read `AGENTS.md` before every repository task. Student academic data is sensitive: minimize collection, validate all inputs, avoid logging personal data, and do not commit real `.env` values or credentials.

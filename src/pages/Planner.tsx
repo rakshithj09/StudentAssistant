@@ -1,151 +1,311 @@
-import React, { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { ApiClientError, apiFetch } from '../api';
+import {
+  careerClusters,
+  defaultProfile,
+  generatedScheduleSchema,
+  type GeneratedSchedule,
+  mathLevels,
+  rigorPreferences,
+  schoolSystems,
+  studentProfileSchema,
+  type StudentProfile,
+  type ScheduleTerm,
+  testStatuses,
+} from '../shared/planner';
+
+interface User {
+  id: string;
+  email: string;
+}
+
+interface SavedSchedule {
+  id: string;
+  title: string;
+  profileSnapshot: StudentProfile;
+  generatedSchedule: GeneratedSchedule;
+  createdAt: string;
+  updatedAt: string;
+}
+
+const clusterLabels: Record<(typeof careerClusters)[number], string> = {
+  stem: 'STEM',
+  health: 'Health',
+  business: 'Business',
+  'arts-media': 'Arts / Media',
+  'humanities-law': 'Humanities / Law',
+  trades: 'Trades',
+  undecided: 'Undecided',
+};
 
 function Planner() {
-  const [grade, setGrade] = useState('7');
-  const [school, setSchool] = useState('public');
-  const [math, setMath] = useState('pre-algebra');
-  const [planGenerated, setPlanGenerated] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [authMode, setAuthMode] = useState<'login' | 'register'>('register');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [profile, setProfile] = useState<StudentProfile>(defaultProfile);
+  const [schedule, setSchedule] = useState<GeneratedSchedule | null>(null);
+  const [savedSchedules, setSavedSchedules] = useState<SavedSchedule[]>([]);
+  const [selectedScheduleId, setSelectedScheduleId] = useState<string | null>(null);
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleGenerate = (e: React.FormEvent) => {
-    e.preventDefault();
-    setPlanGenerated(true);
+  useEffect(() => {
+    apiFetch<User>('/api/auth/me')
+      .then((currentUser) => {
+        setUser(currentUser);
+        return Promise.all([
+          apiFetch<StudentProfile | null>('/api/profile'),
+          apiFetch<SavedSchedule[]>('/api/schedules'),
+        ]);
+      })
+      .then(([savedProfile, schedules]) => {
+        if (savedProfile) setProfile(savedProfile);
+        setSavedSchedules(schedules);
+      })
+      .catch(() => undefined);
+  }, []);
+
+  const title = useMemo(() => {
+    return `${profile.grade}th grade ${clusterLabels[profile.careerCluster]} plan`;
+  }, [profile.grade, profile.careerCluster]);
+
+  const handleAuth = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    setMessage('');
+    try {
+      const endpoint = authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
+      const currentUser = await apiFetch<User>(endpoint, {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+      });
+      setUser(currentUser);
+      const [savedProfile, schedules] = await Promise.all([
+        apiFetch<StudentProfile | null>('/api/profile'),
+        apiFetch<SavedSchedule[]>('/api/schedules'),
+      ]);
+      if (savedProfile) setProfile(savedProfile);
+      setSavedSchedules(schedules);
+      setMessage('Signed in. Your planner is ready.');
+    } catch (error) {
+      setMessage(getErrorMessage(error));
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const renderOptimizationAdvice = () => {
-    if (parseInt(grade) <= 8 && school === 'public') {
-      return (
-        <div className="card mb-4" style={{ borderLeft: '4px solid var(--accent-color)' }}>
-          <h4 className="heading-sm">💡 Optimization Tip</h4>
-          <p>The smartest and most optimized route is to attend <strong>Haas Hall Academy</strong> for your Junior High years. We highly recommend taking their placement exam to skip Pre-Algebra so you can take <strong>Algebra 1 in 7th grade</strong> and <strong>Geometry in 8th grade</strong>.</p>
-        </div>
-      );
-    }
-    
-    if (parseInt(grade) >= 9 && school === 'haas') {
-      return (
-        <div className="card mb-4" style={{ borderLeft: '4px solid var(--success-color)' }}>
-          <h4 className="heading-sm">💡 Optimization Tip</h4>
-          <p>Now that you're entering High School, the optimized route is to move to a <strong>Public School</strong>. Because you've accelerated your math, you are ready to start and finish your <strong>ACT or SAT exams</strong> the year you finish Algebra 2, giving you a massive advantage for college prep!</p>
-        </div>
-      );
+  const handleGenerate = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    setMessage('');
+
+    const parsed = studentProfileSchema.safeParse(profile);
+    if (!parsed.success) {
+      setMessage('Check the profile fields before generating a plan.');
+      setLoading(false);
+      return;
     }
 
-    if (school === 'haas' && parseInt(grade) <= 8) {
-       return (
-        <div className="card mb-4" style={{ borderLeft: '4px solid var(--primary-color)' }}>
-          <h4 className="heading-sm">💡 Optimization Tip</h4>
-          <p>You are on the right track! Make sure you are pushing to complete <strong>Algebra 2</strong> as early as possible. Once you finish Algebra 2, you'll be perfectly positioned to transition to a public high school and crush your ACT/SATs!</p>
-        </div>
-      );
+    try {
+      const generated = await apiFetch<GeneratedSchedule>('/api/schedules/generate', {
+        method: 'POST',
+        body: JSON.stringify(parsed.data),
+      });
+      setProfile(parsed.data);
+      setSchedule(generated);
+      setSelectedScheduleId(null);
+      setMessage('Generated a personalized semester-by-semester plan.');
+    } catch (error) {
+      setMessage(getErrorMessage(error));
+    } finally {
+      setLoading(false);
     }
-
-    return null;
   };
+
+  const handleSave = async () => {
+    if (!schedule) return;
+    setLoading(true);
+    setMessage('');
+    try {
+      const parsed = generatedScheduleSchema.parse(schedule);
+      const saved = selectedScheduleId
+        ? await apiFetch<SavedSchedule>(`/api/schedules/${selectedScheduleId}`, {
+            method: 'PUT',
+            body: JSON.stringify({ title: parsed.title, generatedSchedule: parsed }),
+          })
+        : await apiFetch<SavedSchedule>('/api/schedules', {
+            method: 'POST',
+            body: JSON.stringify({ title: parsed.title || title, profileSnapshot: profile, generatedSchedule: parsed }),
+          });
+      setSelectedScheduleId(saved.id);
+      setSavedSchedules((current) => [saved, ...current.filter((item) => item.id !== saved.id)]);
+      setMessage('Schedule saved to your account.');
+    } catch (error) {
+      setMessage(getErrorMessage(error));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadSavedSchedule = (saved: SavedSchedule) => {
+    setProfile(saved.profileSnapshot);
+    setSchedule(saved.generatedSchedule);
+    setSelectedScheduleId(saved.id);
+    setMessage('Loaded saved schedule.');
+  };
+
+  const updateTerm = (index: number, term: ScheduleTerm) => {
+    setSchedule((current) => {
+      if (!current) return current;
+      const terms = current.terms.map((item, itemIndex) => (itemIndex === index ? term : item));
+      return { ...current, terms };
+    });
+  };
+
+  if (!user) {
+    return (
+      <div className="container mt-8 mb-8 planner-page">
+        <section className="planner-intro">
+          <h1 className="heading-lg mb-2">Personalized Schedule Generator</h1>
+          <p className="text-secondary">
+            Create an account to save a private academic profile and generate a semester-by-semester college readiness plan.
+          </p>
+        </section>
+
+        <form onSubmit={handleAuth} className="planner-card auth-card">
+          <div className="segmented-control" aria-label="Authentication mode">
+            <button type="button" className={authMode === 'register' ? 'active' : ''} onClick={() => setAuthMode('register')}>Create account</button>
+            <button type="button" className={authMode === 'login' ? 'active' : ''} onClick={() => setAuthMode('login')}>Sign in</button>
+          </div>
+          <label>
+            Email
+            <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" required autoComplete="email" />
+          </label>
+          <label>
+            Password
+            <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" required minLength={10} autoComplete={authMode === 'register' ? 'new-password' : 'current-password'} />
+          </label>
+          <button type="submit" className="btn btn-primary" disabled={loading}>{loading ? 'Working...' : authMode === 'register' ? 'Create account' : 'Sign in'}</button>
+          <p className="text-muted privacy-note">Academic scores are sensitive. They are used only for your authenticated planner profile.</p>
+          {message && <p className="form-message">{message}</p>}
+        </form>
+      </div>
+    );
+  }
 
   return (
-    <div className="container mt-8 mb-8">
-      <h1 className="heading-lg mb-4">Student Success Plan (SSP) Generator</h1>
-      <p className="text-secondary mb-8">Enter your current details to generate a personalized course plan and optimized routing advice.</p>
-
-      <div className="flex" style={{ gap: '2rem', flexWrap: 'wrap' }}>
-        <div className="card" style={{ flex: '1', minWidth: '300px' }}>
-          <form onSubmit={handleGenerate} className="flex flex-col gap-4">
-            <div>
-              <label className="text-secondary mb-1" style={{ display: 'block' }}>Current Grade</label>
-              <select 
-                value={grade} 
-                onChange={(e) => setGrade(e.target.value)}
-                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}
-              >
-                <option value="7">7th Grade</option>
-                <option value="8">8th Grade</option>
-                <option value="9">9th Grade</option>
-                <option value="10">10th Grade</option>
-                <option value="11">11th Grade</option>
-                <option value="12">12th Grade</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="text-secondary mb-1" style={{ display: 'block' }}>Current School System</label>
-              <select 
-                value={school} 
-                onChange={(e) => setSchool(e.target.value)}
-                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}
-              >
-                <option value="public">Public School (Bentonville)</option>
-                <option value="haas">Haas Hall Academy</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="text-secondary mb-1" style={{ display: 'block' }}>Current/Next Math Course</label>
-              <select 
-                value={math} 
-                onChange={(e) => setMath(e.target.value)}
-                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}
-              >
-                <option value="pre-algebra">Math 7 / Pre-Algebra</option>
-                <option value="algebra1">Algebra 1</option>
-                <option value="geometry">Geometry</option>
-                <option value="algebra2">Algebra 2</option>
-                <option value="precal">Pre-Calculus</option>
-                <option value="calc">Calculus / Stats</option>
-              </select>
-            </div>
-
-            <button type="submit" className="btn btn-primary mt-4">Generate Plan</button>
-          </form>
+    <div className="container mt-8 mb-8 planner-page">
+      <div className="planner-toolbar">
+        <div>
+          <h1 className="heading-lg mb-1">Personalized Schedule Generator</h1>
+          <p className="text-secondary">Signed in as {user.email}</p>
         </div>
+        <button
+          type="button"
+          className="btn btn-secondary no-print"
+          onClick={() => apiFetch('/api/auth/logout', { method: 'POST' }).then(() => window.location.reload())}
+        >
+          Sign out
+        </button>
+      </div>
 
-        {planGenerated && (
-          <div style={{ flex: '2', minWidth: '300px' }} className="animate-fade-in">
-            <h2 className="heading-md mb-4">Your Personalized Plan</h2>
-            
-            {renderOptimizationAdvice()}
+      {message && <div className="planner-alert no-print">{message}</div>}
 
-            <div className="card">
-              <h3 className="heading-sm mb-4">Recommended Schedule</h3>
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr style={{ borderBottom: '2px solid var(--border-color)', textAlign: 'left' }}>
-                    <th style={{ padding: '0.5rem' }}>Subject</th>
-                    <th style={{ padding: '0.5rem' }}>Recommendation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                    <td style={{ padding: '0.75rem 0.5rem' }}><strong>Math</strong></td>
-                    <td style={{ padding: '0.75rem 0.5rem' }}>
-                      {math === 'pre-algebra' ? 'Take Placement Exam -> Algebra 1' : 
-                       math === 'algebra1' ? 'Geometry (Advanced/Honors)' : 
-                       math === 'geometry' ? 'Algebra 2 (Advanced)' : 
-                       'AP Pre-Calculus / AP Statistics'}
-                    </td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                    <td style={{ padding: '0.75rem 0.5rem' }}><strong>English</strong></td>
-                    <td style={{ padding: '0.75rem 0.5rem' }}>Pre-AP / AP English sequence</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                    <td style={{ padding: '0.75rem 0.5rem' }}><strong>Science</strong></td>
-                    <td style={{ padding: '0.75rem 0.5rem' }}>Physical Science Integrated / Biology</td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '0.75rem 0.5rem' }}><strong>Electives</strong></td>
-                    <td style={{ padding: '0.75rem 0.5rem' }}>Foreign Language (Spanish I/II), Computer Science, or Career Tech</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="text-muted mt-4" style={{ fontSize: '0.875rem' }}>
-                *Note: This is a high-level recommendation based on the Bentonville/Haas course catalogs. Always consult with your school counselor to ensure all graduation requirements are met.
-              </p>
+      <div className="planner-layout">
+        <form onSubmit={handleGenerate} className="planner-card profile-form no-print">
+          <h2 className="heading-sm">Student Profile</h2>
+          <div className="form-grid">
+            <label>Current grade<select value={profile.grade} onChange={(event) => setProfile({ ...profile, grade: Number(event.target.value) })}>{[7, 8, 9, 10, 11, 12].map((grade) => <option key={grade} value={grade}>{grade}th grade</option>)}</select></label>
+            <label>School system<select value={profile.schoolSystem} onChange={(event) => setProfile({ ...profile, schoolSystem: event.target.value as StudentProfile['schoolSystem'] })}>{schoolSystems.map((school) => <option key={school} value={school}>{school === 'bentonville' ? 'Bentonville Public' : 'Haas Hall Academy'}</option>)}</select></label>
+            <label>Transfer preference<select value={profile.transferPreference} onChange={(event) => setProfile({ ...profile, transferPreference: event.target.value as StudentProfile['transferPreference'] })}><option value="haas-then-public">Haas math, then public school</option><option value="public">Public school route</option><option value="stay">Stay in current system</option></select></label>
+            <label>Current math<select value={profile.currentMath} onChange={(event) => setProfile({ ...profile, currentMath: event.target.value as StudentProfile['currentMath'] })}>{mathLevels.map((math) => <option key={math} value={math}>{formatOption(math)}</option>)}</select></label>
+            <label>GPA<input type="number" min="0" max="4" step="0.01" value={profile.gpa} onChange={(event) => setProfile({ ...profile, gpa: Number(event.target.value) })} required /></label>
+            <label>Math grade<input type="number" min="0" max="100" value={profile.mathGrade} onChange={(event) => setProfile({ ...profile, mathGrade: Number(event.target.value) })} required /></label>
+            <label>English grade<input type="number" min="0" max="100" value={profile.englishGrade} onChange={(event) => setProfile({ ...profile, englishGrade: Number(event.target.value) })} required /></label>
+            <label>Science grade<input type="number" min="0" max="100" value={profile.scienceGrade} onChange={(event) => setProfile({ ...profile, scienceGrade: Number(event.target.value) })} required /></label>
+            <label>Social studies grade<input type="number" min="0" max="100" value={profile.socialStudiesGrade} onChange={(event) => setProfile({ ...profile, socialStudiesGrade: Number(event.target.value) })} required /></label>
+            <label>Test status<select value={profile.testStatus} onChange={(event) => setProfile({ ...profile, testStatus: event.target.value as StudentProfile['testStatus'] })}>{testStatuses.map((status) => <option key={status} value={status}>{formatOption(status)}</option>)}</select></label>
+            <label>ACT composite<input type="number" min="1" max="36" value={profile.actComposite ?? ''} onChange={(event) => setProfile({ ...profile, actComposite: event.target.value ? Number(event.target.value) : undefined })} /></label>
+            <label>SAT total<input type="number" min="400" max="1600" value={profile.satTotal ?? ''} onChange={(event) => setProfile({ ...profile, satTotal: event.target.value ? Number(event.target.value) : undefined })} /></label>
+            <label>Career cluster<select value={profile.careerCluster} onChange={(event) => setProfile({ ...profile, careerCluster: event.target.value as StudentProfile['careerCluster'] })}>{careerClusters.map((cluster) => <option key={cluster} value={cluster}>{clusterLabels[cluster]}</option>)}</select></label>
+            <label>Rigor preference<select value={profile.rigorPreference} onChange={(event) => setProfile({ ...profile, rigorPreference: event.target.value as StudentProfile['rigorPreference'] })}>{rigorPreferences.map((rigor) => <option key={rigor} value={rigor}>{formatOption(rigor)}</option>)}</select></label>
+          </div>
+          <label>Completed courses<input value={profile.completedCourses.join(', ')} onChange={(event) => setProfile({ ...profile, completedCourses: splitList(event.target.value) })} placeholder="Algebra I, Biology, Spanish I" /></label>
+          <label>Extracurricular interests<input value={profile.extracurricularInterests.join(', ')} onChange={(event) => setProfile({ ...profile, extracurricularInterests: splitList(event.target.value) })} placeholder="Robotics, debate, volunteering" /></label>
+          <button type="submit" className="btn btn-primary" disabled={loading}>{loading ? 'Generating...' : 'Generate personalized schedule'}</button>
+        </form>
+
+        <aside className="planner-card saved-list no-print">
+          <h2 className="heading-sm">Saved Plans</h2>
+          {savedSchedules.length === 0 ? <p className="text-muted">No saved schedules yet.</p> : savedSchedules.map((saved) => (
+            <button key={saved.id} type="button" className="saved-plan-button" onClick={() => loadSavedSchedule(saved)}>
+              <strong>{saved.title}</strong>
+              <span>{new Date(saved.updatedAt).toLocaleDateString()}</span>
+            </button>
+          ))}
+        </aside>
+      </div>
+
+      {schedule && (
+        <section className="schedule-output">
+          <div className="schedule-header">
+            <div>
+              <input className="schedule-title" value={schedule.title} onChange={(event) => setSchedule({ ...schedule, title: event.target.value })} />
+              <p className="text-secondary">Readiness band: <strong>{schedule.readinessBand}</strong></p>
+            </div>
+            <div className="button-row no-print">
+              <button type="button" className="btn btn-secondary" onClick={() => window.print()}>Print / export PDF</button>
+              <button type="button" className="btn btn-primary" onClick={handleSave} disabled={loading}>Save plan</button>
             </div>
           </div>
-        )}
-      </div>
+
+          <div className="term-grid">
+            {schedule.terms.map((term, index) => (
+              <TermEditor key={`${term.grade}-${term.semester}`} term={term} onChange={(nextTerm) => updateTerm(index, nextTerm)} />
+            ))}
+          </div>
+
+          <div className="planner-footnotes">
+            {[...schedule.assumptions, ...schedule.warnings].map((note) => <p key={note}>{note}</p>)}
+          </div>
+        </section>
+      )}
     </div>
   );
+}
+
+function TermEditor({ term, onChange }: { term: ScheduleTerm; onChange: (term: ScheduleTerm) => void }) {
+  return (
+    <article className="term-card">
+      <div className="term-card-header">
+        <h3>{term.grade}th Grade {term.semester}</h3>
+        <span>{term.schoolSystem}</span>
+      </div>
+      <label>Courses<textarea value={term.courses.join('\n')} onChange={(event) => onChange({ ...term, courses: splitLines(event.target.value) })} /></label>
+      <label>Milestones<textarea value={term.milestones.join('\n')} onChange={(event) => onChange({ ...term, milestones: splitLines(event.target.value) })} /></label>
+      <label>Extracurricular focus<textarea value={term.extracurricularFocus} onChange={(event) => onChange({ ...term, extracurricularFocus: event.target.value })} /></label>
+      <label>Why this term<textarea value={term.explanation} onChange={(event) => onChange({ ...term, explanation: event.target.value })} /></label>
+    </article>
+  );
+}
+
+function splitList(value: string) {
+  return value.split(',').map((item) => item.trim()).filter(Boolean);
+}
+
+function splitLines(value: string) {
+  return value.split('\n').map((item) => item.trim()).filter(Boolean);
+}
+
+function formatOption(value: string) {
+  return value.split('-').map((word) => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
+
+function getErrorMessage(error: unknown) {
+  if (error instanceof ApiClientError) return error.message;
+  if (error instanceof Error) return error.message;
+  return 'Something went wrong.';
 }
 
 export default Planner;

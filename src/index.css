@@ -311,3 +311,239 @@ a:hover {
      background-color: rgba(99, 102, 241, 0.2);
   }
 }
+
+/* Personalized planner */
+.planner-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.planner-intro,
+.planner-toolbar,
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.planner-card,
+.term-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+}
+
+.auth-card {
+  width: min(460px, 100%);
+}
+
+.planner-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.profile-form,
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.profile-form label,
+.auth-card label,
+.term-card label {
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 0.35rem;
+}
+
+.profile-form input,
+.profile-form select,
+.auth-card input,
+.term-card textarea,
+.schedule-title {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  font: inherit;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.term-card textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.segmented-control {
+  background: var(--bg-tertiary);
+  border-radius: var(--border-radius-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.25rem;
+}
+
+.segmented-control button {
+  background: transparent;
+  border: 0;
+  border-radius: var(--border-radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.65rem;
+}
+
+.segmented-control .active {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.privacy-note,
+.form-message {
+  font-size: 0.9rem;
+}
+
+.planner-alert {
+  background: var(--primary-light);
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  padding: 1rem;
+}
+
+.saved-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.saved-plan-button {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  text-align: left;
+}
+
+.saved-plan-button span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.schedule-output {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.schedule-title {
+  border: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  padding-left: 0;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.term-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.term-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.term-card-header h3 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.term-card-header span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.planner-footnotes {
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 860px) {
+  .planner-layout,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-intro,
+  .planner-toolbar,
+  .schedule-header {
+    flex-direction: column;
+  }
+}
+
+@media print {
+  .header,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: #111827;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .term-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .term-card,
+  .planner-card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
