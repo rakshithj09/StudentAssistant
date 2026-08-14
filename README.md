@@ -45,14 +45,25 @@ No architecture, frontend framework, backend framework, or database is currently
 ## Local Setup
 
 ### Prerequisites
-*Unknown (Requires owner confirmation).*
+- Node.js 22+
+- npm
+- Firebase CLI access to project `bentonvillecounselling`
 
 ### Environment
-*Not configured.*
+Copy `.env.example` to `.env` for local development and replace placeholder values as needed.
+
+```bash
+cp .env.example .env
+```
+
+Do not commit `.env` or any real secret values.
 
 ## Running Locally
 
-*Not configured.*
+```bash
+npm ci
+npm run dev
+```
 
 ## API Contracts
 
@@ -77,7 +88,10 @@ The core logic will involve mapping student progress to Bentonville/Haas course 
 
 ## Testing and Verification
 
-*Not configured.*
+```bash
+npm run lint
+npm run build
+```
 
 ## Development rules
 
@@ -91,7 +105,35 @@ The core logic will involve mapping student progress to Bentonville/Haas course 
 
 ## Deployment summary
 
-*Not configured.*
+This app is configured for Firebase Hosting as a Vite static frontend.
+
+Firebase project:
+- Project name: `StudentAssistant`
+- Project ID: `bentonvillecounselling`
+- Project number: `856640678808`
+
+Manual deployment:
+
+```bash
+npm run build
+npx firebase-tools@latest deploy --only hosting -P bentonvillecounselling
+```
+
+Automated deployment is configured in `.github/workflows/firebase-hosting.yml`.
+
+Branch behavior:
+- Push to `main`: deploys to the Firebase Hosting production channel.
+- Push to `redesign`: deploys to the Firebase preview channel named `redesign`.
+- Push to any other branch: deploys to a Firebase preview channel derived from the branch name.
+- Pull requests targeting `main` or `redesign`: deploy to a preview channel.
+
+Required GitHub repository secret:
+
+```text
+FIREBASE_SERVICE_ACCOUNT_BENTONVILLECOUNSELLING
+```
+
+Create a least-privilege Firebase service account for Hosting deployment, store the full JSON key as that GitHub secret, and rotate the key if it is ever exposed.
 
 ## Troubleshooting
 
@@ -105,7 +147,12 @@ The core logic will involve mapping student progress to Bentonville/Haas course 
 
 ## Useful commands
 
-*None configured.*
+```bash
+npm run dev
+npm run lint
+npm run build
+npx firebase-tools@latest deploy --only hosting -P bentonvillecounselling
+```
 
 ## First-week checklist
 

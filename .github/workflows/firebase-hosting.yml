@@ -1,0 +1,74 @@
+name: Firebase Hosting
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - main
+      - redesign
+
+permissions:
+  contents: read
+
+env:
+  FIREBASE_PROJECT_ID: bentonvillecounselling
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BENTONVILLECOUNSELLING }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "Missing FIREBASE_SERVICE_ACCOUNT_BENTONVILLECOUNSELLING GitHub secret." >&2
+            exit 1
+          fi
+
+          FIREBASE_CREDENTIALS_FILE="$RUNNER_TEMP/firebase-service-account.json"
+          printf "%s" "$FIREBASE_SERVICE_ACCOUNT" > "$FIREBASE_CREDENTIALS_FILE"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$FIREBASE_CREDENTIALS_FILE" >> "$GITHUB_ENV"
+
+      - name: Deploy production channel
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx firebase-tools@latest deploy --only hosting --project "$FIREBASE_PROJECT_ID" --non-interactive
+
+      - name: Deploy preview channel
+        if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/main')
+        run: |
+          RAW_CHANNEL="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+          CHANNEL_ID="$(printf "%s" "$RAW_CHANNEL" \
+            | tr "[:upper:]" "[:lower:]" \
+            | sed -E "s/[^a-z0-9-]+/-/g; s/^-+//; s/-+$//; s/-+/-/g" \
+            | cut -c1-30)"
+
+          if [ -z "$CHANNEL_ID" ]; then
+            CHANNEL_ID="preview"
+          fi
+
+          npx firebase-tools@latest hosting:channel:deploy "$CHANNEL_ID" \
+            --project "$FIREBASE_PROJECT_ID" \
+            --expires 30d \
+            --non-interactive
