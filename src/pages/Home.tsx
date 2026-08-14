@@ -1,5 +1,6 @@
 import { useStudent } from '../context/StudentContext';
 import { Icon } from '../components/Icons';
+import { getAcademicYearsRemaining, getGraduationYearForGrade } from '../utils/grade';
 
 function Home() {
   const { student, updateGradReq } = useStudent();
@@ -10,11 +11,8 @@ function Home() {
     return 'Bentonville High School (BHS)';
   };
   const getGradeLabel = () => `${student.grade}th Grade`;
-  const getClassYear = () => {
-    const yearsLeft = 12 - parseInt(student.grade);
-    return 2026 + yearsLeft;
-  };
-  const yearsToGraduation = Math.max(0, 12 - parseInt(student.grade));
+  const classYear = getGraduationYearForGrade(student.grade);
+  const yearsToGraduation = getAcademicYearsRemaining(student.grade);
   const displayName = student.name.trim() || 'Student';
   const gpaDisplay = student.gpa.trim() || 'Not set';
   const targetDisplay = student.targetCollege.trim() || 'Choose a goal';
@@ -30,7 +28,7 @@ function Home() {
           Good morning,<br/><i>{displayName}.</i>
         </h1>
         <p className="text-secondary mt-4">
-          {getGradeLabel()} · {getSchoolLabel()} · Class of {getClassYear()}
+          {getGradeLabel()} · {getSchoolLabel()} · Class of {classYear}
         </p>
         <div className="stats-container">
           <div className="stat-box">

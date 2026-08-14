@@ -44,7 +44,7 @@ function AppContent() {
           <div className="brand-icon">
             <img className="brand-mark" src="/favicon.svg" alt="" />
           </div>
-          <span>Bentonville Student <span style={{color: 'var(--text-muted)'}}>Assistant</span></span>
+          <span>Bentonville Student Assistant<span style={{color: 'var(--text-muted)'}}></span></span>
         </div>
         
         <div className="nav-links">
