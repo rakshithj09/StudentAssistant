@@ -37,10 +37,21 @@ const getAuthMessage = (error: unknown): string => {
       return 'Email or password is incorrect.';
     case 'auth/popup-closed-by-user':
       return 'Google sign-in was closed before it finished.';
+    case 'auth/operation-not-allowed':
+      return 'Google sign-in is not enabled yet. In Firebase Console, enable Authentication > Sign-in method > Google.';
+    case 'auth/unauthorized-domain':
+      return `This domain is not authorized for Firebase Auth. Add ${window.location.hostname} in Firebase Authentication > Settings > Authorized domains.`;
+    case 'auth/popup-blocked':
+      return 'The Google sign-in popup was blocked. Allow popups for this site and try again.';
+    case 'auth/cancelled-popup-request':
+      return 'Another Google sign-in popup is already open. Close it and try again.';
+    case 'auth/api-key-not-valid.-please-pass-a-valid-api-key.':
+    case 'auth/invalid-api-key':
+      return 'The Firebase API key in the deployed app is invalid. Check the VITE_FIREBASE_API_KEY GitHub secret.';
     case 'auth/weak-password':
       return 'Use a password with at least 6 characters.';
     default:
-      return 'Authentication failed. Check your Firebase setup and try again.';
+      return `Authentication failed (${error.code}). Check your Firebase setup and try again.`;
   }
 };
 
