@@ -166,7 +166,7 @@ FIREBASE_SERVICE_ACCOUNT_BENTONVILLECOUNSELLING
 
 Create a least-privilege Firebase service account for Hosting deployment, store the full JSON key as that GitHub secret, and rotate the key if it is ever exposed.
 
-Required GitHub repository variables for the Vite Firebase client build:
+Required GitHub Actions secrets for the Vite Firebase client build:
 
 ```text
 VITE_FIREBASE_API_KEY
@@ -177,7 +177,7 @@ VITE_FIREBASE_MESSAGING_SENDER_ID
 VITE_FIREBASE_APP_ID
 ```
 
-Add them in GitHub under Settings -> Secrets and variables -> Actions -> Variables. These are Firebase Web App config values, not service-account credentials.
+Add them in GitHub under Settings -> Secrets and variables -> Actions -> Secrets. These are Firebase Web App config values, not service-account credentials.
 
 The service account needs permission to deploy Firebase Hosting and Firestore rules for the production workflow. Preview channel deploys run for pull requests and non-main branches; pushes to `main` deploy the live Hosting channel and Firestore rules.
 
