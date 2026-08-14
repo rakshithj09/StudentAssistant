@@ -5,6 +5,7 @@ import { Icon } from '../components/Icons';
 function TestPrep() {
   const { student, updateActScores, addTestAttempt, deleteTestAttempt } = useStudent();
   const scores = student.actScores;
+  const displayTarget = student.targetCollege.trim() || 'Final goal';
 
   // New attempt form state
   const [showAddForm, setShowAddForm] = useState(false);
@@ -244,7 +245,7 @@ function TestPrep() {
                 padding: '0.25rem'
               }}
             />
-            <Icon className="ui-icon" name="plus" size={20} style={{color: 'white'}} />
+            <span style={{fontSize: '1.5rem', color: 'white', fontWeight: 600}}>+</span>
           </div>
           <div className="text-orange" style={{fontSize: '0.75rem', marginTop: '0.35rem'}}>Spring Jr. Year</div>
         </div>
@@ -273,9 +274,9 @@ function TestPrep() {
                 padding: '0.25rem'
               }}
             />
-            <Icon className="ui-icon" name="plus" size={20} style={{color: 'white'}} />
+            <span style={{fontSize: '1.5rem', color: 'white', fontWeight: 600}}>+</span>
           </div>
-          <div className="text-orange" style={{fontSize: '0.75rem', marginTop: '0.35rem'}}>{student.targetCollege}</div>
+          <div className="text-orange" style={{fontSize: '0.75rem', marginTop: '0.35rem'}}>{displayTarget}</div>
         </div>
       </div>
 

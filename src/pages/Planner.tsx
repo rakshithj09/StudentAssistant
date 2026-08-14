@@ -162,12 +162,7 @@ function Planner() {
         Four-Year Course Plan
       </h1>
       <p className="text-secondary mb-4 text-sm">
-        Tailored to: {student.schoolPathway === 'haas_to_public' ? 'Haas Hall -> Public Transfer Strategy' : student.schoolPathway === 'haas_all' ? 'Haas Hall Full Strategy' : 'Public USD Strategy'} · {student.diplomaPathway === 'high_honors' ? (
-          <span className="icon-text">
-            <Icon className="ui-icon" name="trophy" size={15} />
-            High Honors Diploma
-          </span>
-        ) : student.diplomaPathway === 'honors' ? 'Honors Diploma' : 'Standard Diploma'}
+        Tailored to: {student.schoolPathway === 'haas_to_public' ? 'Haas Hall -> Public Transfer Strategy' : student.schoolPathway === 'haas_all' ? 'Haas Hall Full Strategy' : 'Public USD Strategy'} · {student.diplomaPathway === 'high_honors' ? 'High Honors Diploma' : student.diplomaPathway === 'honors' ? 'Honors Diploma' : 'Standard Diploma'}
       </p>
 
       {renderOptimizationAdvice()}

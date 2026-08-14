@@ -56,7 +56,32 @@ Copy `.env.example` to `.env` for local development and replace placeholder valu
 cp .env.example .env
 ```
 
-Do not commit `.env` or any real secret values.
+Firebase web app values are public client configuration values, but they still belong in `.env` locally so each environment can point to the correct Firebase project. Do not commit `.env`, service account JSON, private keys, or any real server secret values.
+
+Required Firebase client keys:
+
+```text
+VITE_FIREBASE_API_KEY
+VITE_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID
+```
+
+Get these from Firebase Console:
+
+1. Open project `bentonvillecounselling`.
+2. Go to Project settings.
+3. Under Your apps, create or open the Web app.
+4. Copy the Firebase config values into `.env`.
+
+### Firebase Services
+Enable these before running the app against Firebase:
+
+1. Authentication: enable Google and Email/Password sign-in providers.
+2. Firestore Database: create a database for project `bentonvillecounselling`.
+3. Security rules: deploy `firestore.rules` before collecting real student planner data.
 
 ## Running Locally
 
@@ -79,7 +104,13 @@ npm run dev
 
 ## Storage Model
 
-*Not configured.*
+Signed-in users save planner data in Firestore at:
+
+```text
+users/{uid}/planner/state
+```
+
+Firestore rules deny all other access and only allow a signed-in user to read/write their own `users/{uid}` subtree. The browser also keeps a local fallback draft under `bentonville-student-planner-profile`; after login, Firestore is the source of truth and the old device profile can be imported once from the onboarding/settings flow.
 
 ## Domain-specific subsystem
 
@@ -116,7 +147,7 @@ Manual deployment:
 
 ```bash
 npm run build
-npx firebase-tools@latest deploy --only hosting -P bentonvillecounselling
+npx firebase-tools@latest deploy --only hosting,firestore:rules -P bentonvillecounselling
 ```
 
 Automated deployment is configured in `.github/workflows/firebase-hosting.yml`.
@@ -135,6 +166,21 @@ FIREBASE_SERVICE_ACCOUNT_BENTONVILLECOUNSELLING
 
 Create a least-privilege Firebase service account for Hosting deployment, store the full JSON key as that GitHub secret, and rotate the key if it is ever exposed.
 
+Required GitHub repository variables for the Vite Firebase client build:
+
+```text
+VITE_FIREBASE_API_KEY
+VITE_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID
+```
+
+Add them in GitHub under Settings -> Secrets and variables -> Actions -> Variables. These are Firebase Web App config values, not service-account credentials.
+
+The service account needs permission to deploy Firebase Hosting and Firestore rules for the production workflow. Preview channel deploys run for pull requests and non-main branches; pushes to `main` deploy the live Hosting channel and Firestore rules.
+
 ## Troubleshooting
 
 | Symptom | Likely cause | What to check |
@@ -151,7 +197,7 @@ Create a least-privilege Firebase service account for Hosting deployment, store 
 npm run dev
 npm run lint
 npm run build
-npx firebase-tools@latest deploy --only hosting -P bentonvillecounselling
+npx firebase-tools@latest deploy --only hosting,firestore:rules -P bentonvillecounselling
 ```
 
 ## First-week checklist

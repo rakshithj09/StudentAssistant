@@ -6,12 +6,36 @@ import Pathway from './pages/Pathway';
 import Extracurriculars from './pages/Extracurriculars';
 import Profile from './pages/Profile';
 import Schedule from './pages/Schedule';
+import AuthPage from './pages/AuthPage';
+import Onboarding from './pages/Onboarding';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { StudentProvider } from './context/StudentContext';
-import { Icon } from './components/Icons';
+import { useStudent } from './context/StudentContext';
 
 function AppContent() {
   const location = useLocation();
   const path = location.pathname;
+  const { user, loading: authLoading, logOut } = useAuth();
+  const { student, profileLoading } = useStudent();
+
+  if (authLoading || profileLoading) {
+    return (
+      <main className="auth-shell">
+        <div className="auth-card">
+          <img className="auth-brand-mark" src="/favicon.svg" alt="" />
+          <p className="text-secondary">Loading your planner...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (!user) {
+    return <AuthPage />;
+  }
+
+  if (!student.profileComplete) {
+    return <Onboarding />;
+  }
 
   return (
     <div className="layout-container">
@@ -29,13 +53,9 @@ function AppContent() {
           <Link to="/test-prep" className={`nav-link ${path === '/test-prep' ? 'active' : ''}`}>ACT/SAT</Link>
           <Link to="/pathway" className={`nav-link ${path === '/pathway' ? 'active' : ''}`}>Pathway</Link>
           <Link to="/extracurriculars" className={`nav-link ${path === '/extracurriculars' ? 'active' : ''}`}>Activities</Link>
-          <Link to="/schedule" className={`nav-link ${path === '/schedule' ? 'active' : ''}`} style={{background: path === '/schedule' ? 'var(--accent-orange)' : 'transparent', borderColor: path === '/schedule' ? 'var(--accent-orange)' : undefined}}>
-            <Icon className="ui-icon" name="clipboard-list" size={15} />
-            Schedule
-          </Link>
-          <Link to="/profile" aria-label="Profile settings" className={`nav-link ${path === '/profile' ? 'active' : ''}`} style={{marginLeft: 'auto', border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '4px'}}>
-            <Icon className="ui-icon" name="settings" size={16} />
-          </Link>
+          <Link to="/schedule" className={`nav-link ${path === '/schedule' ? 'active' : ''}`} style={{background: path === '/schedule' ? 'var(--accent-orange)' : 'transparent', borderColor: path === '/schedule' ? 'var(--accent-orange)' : undefined}}>Schedule</Link>
+          <Link to="/profile" className={`nav-link settings-nav-link ${path === '/profile' ? 'active' : ''}`}>Settings</Link>
+          <button type="button" className="nav-link nav-button" onClick={logOut}>Sign out</button>
         </div>
       </nav>
 
@@ -61,11 +81,13 @@ function AppContent() {
 
 function App() {
   return (
-    <StudentProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </StudentProvider>
+    <AuthProvider>
+      <StudentProvider>
+        <Router>
+          <AppContent />
+        </Router>
+      </StudentProvider>
+    </AuthProvider>
   );
 }
 

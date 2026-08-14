@@ -22,6 +22,9 @@ function Schedule() {
   ].map(id => activitiesData.find(a => a.id === id)?.name).filter(Boolean);
 
   const totalManualCourses = Object.values(student.selectedCourses).reduce((s, arr) => s + arr.length, 0);
+  const displayName = student.name.trim() || 'Student profile not set';
+  const displayGpa = student.gpa.trim() ? `${student.gpa} GPA` : 'GPA not set';
+  const displayTarget = student.targetCollege.trim() || 'Goal not set';
 
   const generateSchedule = () => {
     setGenerating(true);
@@ -162,8 +165,8 @@ function Schedule() {
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem'}}>
           <div>
             <div className="text-xs text-secondary mb-1">PROFILE</div>
-            <div className="text-sm"><strong>{student.name}</strong></div>
-            <div style={{fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)'}}>{student.grade}th · {student.currentSchool === 'haas' ? 'Haas Hall' : 'BHS'} · {student.gpa} GPA</div>
+            <div className="text-sm"><strong>{displayName}</strong></div>
+            <div style={{fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)'}}>{student.grade}th · {student.currentSchool === 'haas' ? 'Haas Hall' : 'BHS'} · {displayGpa}</div>
           </div>
           <div>
             <div className="text-xs text-secondary mb-1">COURSES PICKED</div>
@@ -177,7 +180,7 @@ function Schedule() {
           </div>
           <div>
             <div className="text-xs text-secondary mb-1">TARGET</div>
-            <div className="text-sm"><strong>{student.targetCollege}</strong></div>
+            <div className="text-sm"><strong>{displayTarget}</strong></div>
             <div style={{fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)'}}>Schedule optimized for this goal</div>
           </div>
         </div>
@@ -199,10 +202,7 @@ function Schedule() {
             Generating...
           </>
         ) : (
-          <>
-            <Icon className="ui-icon" name="calendar-days" size={17} />
-            Generate 4-Year Schedule
-          </>
+          'Generate 4-Year Schedule'
         )}
       </button>
 
@@ -271,7 +271,7 @@ function Schedule() {
           <div className="navy-card" style={{padding: '1.5rem'}}>
             <div className="text-xs text-orange mb-2">SCHEDULE ADVISOR NOTE</div>
             <p className="text-sm" style={{lineHeight: '1.5'}}>
-              This schedule is generated from the <strong>Bentonville HS 2026-2027 Course Catalog</strong> and optimized for your target of <strong>{student.targetCollege}</strong>. 
+              This schedule is generated from the <strong>Bentonville HS 2026-2027 Course Catalog</strong> and optimized for your target of <strong>{displayTarget}</strong>.
               It prioritizes AP and Honors courses where prerequisites are met, ensures graduation requirements are fulfilled, and balances course load across all four years.
               Always confirm your final schedule with your school counselor.
             </p>

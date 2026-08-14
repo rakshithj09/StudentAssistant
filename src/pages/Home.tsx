@@ -15,6 +15,9 @@ function Home() {
     return 2026 + yearsLeft;
   };
   const yearsToGraduation = Math.max(0, 12 - parseInt(student.grade));
+  const displayName = student.name.trim() || 'Student';
+  const gpaDisplay = student.gpa.trim() || 'Not set';
+  const targetDisplay = student.targetCollege.trim() || 'Choose a goal';
 
   const subjects = Object.keys(student.gradRequirements);
 
@@ -24,7 +27,7 @@ function Home() {
       <div className="navy-card">
         <div className="text-xs text-orange" style={{marginBottom: '0.75rem'}}>YOUR STUDENT SUCCESS PLAN</div>
         <h1 className="hero-greeting font-serif">
-          Good morning,<br/><i>{student.name}.</i>
+          Good morning,<br/><i>{displayName}.</i>
         </h1>
         <p className="text-secondary mt-4">
           {getGradeLabel()} · {getSchoolLabel()} · Class of {getClassYear()}
@@ -32,7 +35,7 @@ function Home() {
         <div className="stats-container">
           <div className="stat-box">
             <div className="stat-box-title">GPA</div>
-            <div className="stat-box-value">{student.gpa}</div>
+            <div className="stat-box-value">{gpaDisplay}</div>
           </div>
           <div className="stat-box">
             <div className="stat-box-title">Credits Earned</div>
@@ -45,7 +48,7 @@ function Home() {
           </div>
           <div className="stat-box">
             <div className="stat-box-title">Target</div>
-            <div className="stat-box-value text-orange" style={{fontSize: '1.1rem', marginTop: '0.15rem'}}>{student.targetCollege}</div>
+            <div className="stat-box-value text-orange" style={{fontSize: '1.1rem', marginTop: '0.15rem'}}>{targetDisplay}</div>
           </div>
         </div>
         <div style={{position: 'absolute', right: '3rem', top: '50%', transform: 'translateY(-50%)', textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2.5rem'}}>
@@ -91,23 +94,14 @@ function Home() {
       <h2 className="section-title">Priority Actions</h2>
       <div className="req-grid" style={{gridTemplateColumns: 'repeat(3, 1fr)'}}>
         <div className="white-card">
-          <div className="priority-icon text-orange">
-            <Icon className="ui-icon" name="circle" size={22} />
-          </div>
           <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Schedule PSAT Prep</h3>
           <p className="text-secondary text-sm">Start 1 practice test/month to prepare for PSAT.</p>
         </div>
         <div className="white-card">
-          <div className="priority-icon" style={{color: 'var(--accent-green)'}}>
-            <Icon className="ui-icon" name="triangle" size={22} />
-          </div>
           <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Join HOSA by Fall</h3>
           <p className="text-secondary text-sm">HOSA aligns with your Pre-Med goal. Register before September.</p>
         </div>
         <div className="white-card">
-          <div className="priority-icon text-muted">
-            <Icon className="ui-icon" name="square" size={22} />
-          </div>
           <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Shadow a Physician</h3>
           <p className="text-secondary text-sm">Aim for 40+ hours before 11th grade applications.</p>
         </div>
