@@ -97,7 +97,7 @@ export const DIPLOMA_REQUIREMENTS: Record<DiplomaPathway, Record<string, number>
 };
 
 const defaultState: StudentState = {
-  name: 'Maya Chen',
+  name: 'Sujiith Selvakumar',
   grade: '10',
   currentSchool: 'haas',
   schoolPathway: 'haas_to_public',
