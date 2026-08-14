@@ -3,6 +3,7 @@ import { useStudent } from '../context/StudentContext';
 import { courseCatalog, getCoursesForGrade, prerequisitesMet } from '../data/courseCatalog';
 import type { Course } from '../data/courseCatalog';
 import { activitiesData } from '../data/activitiesData';
+import { Icon } from '../components/Icons';
 
 interface ScheduleYear {
   grade: number;
@@ -185,14 +186,24 @@ function Schedule() {
       {/* Grad Requirements Status */}
       <div className="summary-bar mb-4">
         {Object.entries(student.gradRequirements).map(([subj, r]) => (
-          <span key={subj} style={{color: r.earned >= r.needed ? 'var(--accent-green)' : 'var(--text-secondary)'}}>
-            {subj}: <strong>{r.earned}/{r.needed}</strong> {r.earned >= r.needed ? '✓' : ''}
+          <span className="icon-text" key={subj} style={{color: r.earned >= r.needed ? 'var(--accent-green)' : 'var(--text-secondary)'}}>
+            {subj}: <strong>{r.earned}/{r.needed}</strong> {r.earned >= r.needed ? <Icon className="ui-icon" name="check" size={14} /> : ''}
           </span>
         ))}
       </div>
 
       <button className="gen-btn mb-8" onClick={generateSchedule} disabled={generating}>
-        {generating ? '⏳ Generating...' : '🗓️ Generate 4-Year Schedule'}
+        {generating ? (
+          <>
+            <Icon className="ui-icon icon-spin" name="loader" size={17} />
+            Generating...
+          </>
+        ) : (
+          <>
+            <Icon className="ui-icon" name="calendar-days" size={17} />
+            Generate 4-Year Schedule
+          </>
+        )}
       </button>
 
       {/* Generated Schedule Output */}

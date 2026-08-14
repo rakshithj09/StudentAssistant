@@ -1,4 +1,6 @@
 
+import { Icon } from '../components/Icons';
+
 function Pathway() {
   return (
     <div>
@@ -17,10 +19,10 @@ function Pathway() {
           <h3 className="font-serif" style={{fontSize: '1.75rem', marginBottom: '2rem'}}>Rigorous Math Foundation</h3>
           
           <ul className="text-sm text-light mb-8" style={{listStyleType: 'none', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span className="text-orange">—</span> Complete Algebra 2 → Pre-Calculus → AP Calculus sequence</li>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span className="text-orange">—</span> Access HHA's small-class advanced STEM curriculum</li>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span className="text-orange">—</span> Build GPA in a high-rigor environment (weighted heavily by colleges)</li>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span className="text-orange">—</span> Establish teacher relationships for future letters of rec</li>
+            <li className="icon-text"><Icon className="ui-icon text-orange" name="route" size={16} /> Complete Algebra 2 -&gt; Pre-Calculus -&gt; AP Calculus sequence</li>
+            <li className="icon-text"><Icon className="ui-icon text-orange" name="route" size={16} /> Access HHA's small-class advanced STEM curriculum</li>
+            <li className="icon-text"><Icon className="ui-icon text-orange" name="route" size={16} /> Build GPA in a high-rigor environment (weighted heavily by colleges)</li>
+            <li className="icon-text"><Icon className="ui-icon text-orange" name="route" size={16} /> Establish teacher relationships for future letters of rec</li>
           </ul>
 
           <div className="text-xs text-secondary mb-1" style={{color: 'rgba(255,255,255,0.4)'}}>WHY THIS MATTERS</div>
@@ -36,10 +38,10 @@ function Pathway() {
           <h3 className="font-serif" style={{fontSize: '1.75rem', marginBottom: '2rem'}}>Test Prep & College Execution</h3>
           
           <ul className="text-sm mb-8" style={{listStyleType: 'none', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span style={{color: '#fde68a'}}>—</span> Access BHS/West's ACT prep infrastructure and school-day testing</li>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span style={{color: '#fde68a'}}>—</span> Load AP courses across departments (language, social studies, arts)</li>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span style={{color: '#fde68a'}}>—</span> Participate in larger extracurricular ecosystem (FBLA, NHS, sports)</li>
-            <li style={{display: 'flex', gap: '0.75rem'}}><span style={{color: '#fde68a'}}>—</span> Take dual enrollment courses through NWA Community College</li>
+            <li className="icon-text"><Icon className="ui-icon" name="route" size={16} style={{color: '#fde68a'}} /> Access BHS/West's ACT prep infrastructure and school-day testing</li>
+            <li className="icon-text"><Icon className="ui-icon" name="route" size={16} style={{color: '#fde68a'}} /> Load AP courses across departments (language, social studies, arts)</li>
+            <li className="icon-text"><Icon className="ui-icon" name="route" size={16} style={{color: '#fde68a'}} /> Participate in larger extracurricular ecosystem (FBLA, NHS, sports)</li>
+            <li className="icon-text"><Icon className="ui-icon" name="route" size={16} style={{color: '#fde68a'}} /> Take dual enrollment courses through NWA Community College</li>
           </ul>
 
           <div className="text-xs mb-1" style={{color: 'rgba(255,255,255,0.5)'}}>WHY THIS MATTERS</div>
@@ -52,12 +54,12 @@ function Pathway() {
       <div className="white-card" style={{backgroundColor: '#eef2eb', borderColor: '#d1e0cb', padding: '2rem'}}>
         <div className="text-xs text-secondary mb-4" style={{color: '#4b5563'}}>TRANSFER CHECKLIST</div>
         <div className="req-grid" style={{gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
-          <div className="text-sm" style={{color: '#166534'}}>✓ Request official transcript from HHA by March of 10th grade</div>
-          <div className="text-sm" style={{color: '#166534'}}>✓ Confirm AP course availability at destination school</div>
-          <div className="text-sm" style={{color: '#166534'}}>✓ Arrange teacher recommendation letters from HHA faculty</div>
-          <div className="text-sm" style={{color: '#166534'}}>✓ Verify extracurricular eligibility / transfer waiting periods</div>
-          <div className="text-sm" style={{color: '#166534'}}>✓ Meet with BHS/West counselor before end of 10th grade</div>
-          <div className="text-sm" style={{color: '#166534'}}>✓ Maintain GPA ≥ 4.0 through transfer semester</div>
+          <div className="text-sm checkline" style={{color: '#166534'}}><Icon className="ui-icon" name="check" size={15} /> Request official transcript from HHA by March of 10th grade</div>
+          <div className="text-sm checkline" style={{color: '#166534'}}><Icon className="ui-icon" name="check" size={15} /> Confirm AP course availability at destination school</div>
+          <div className="text-sm checkline" style={{color: '#166534'}}><Icon className="ui-icon" name="check" size={15} /> Arrange teacher recommendation letters from HHA faculty</div>
+          <div className="text-sm checkline" style={{color: '#166534'}}><Icon className="ui-icon" name="check" size={15} /> Verify extracurricular eligibility / transfer waiting periods</div>
+          <div className="text-sm checkline" style={{color: '#166534'}}><Icon className="ui-icon" name="check" size={15} /> Meet with BHS/West counselor before end of 10th grade</div>
+          <div className="text-sm checkline" style={{color: '#166534'}}><Icon className="ui-icon" name="check" size={15} /> Maintain GPA &gt;= 4.0 through transfer semester</div>
         </div>
       </div>
     </div>

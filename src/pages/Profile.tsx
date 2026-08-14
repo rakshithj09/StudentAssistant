@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useStudent } from '../context/StudentContext';
+import { Icon } from '../components/Icons';
 
 function Profile() {
   const { student, updateStudent } = useStudent();
@@ -93,8 +94,9 @@ function Profile() {
                 style={{ marginRight: '0.5rem' }}
               />
               <div>
-                <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>
-                  ⭐ Recommended Route: Haas Hall (7th-9th) → Public High School (10th-12th)
+                <div className="icon-text" style={{ fontWeight: 600, fontSize: '0.95rem' }}>
+                  <Icon className="ui-icon text-orange" name="sparkles" size={16} />
+                  Recommended Route: Haas Hall (7th-9th) -&gt; Public High School (10th-12th)
                 </div>
                 <div className="text-secondary text-sm">
                   Accelerate Math/Science early at Haas Hall Academy, then move to {student.publicTarget === 'bhs' ? 'Bentonville High' : 'Bentonville West'} to complete ACT/SAT prep and access extensive AP/CTE course offerings.
@@ -147,8 +149,9 @@ function Profile() {
                 style={{ marginRight: '0.5rem' }}
               />
               <div>
-                <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>
-                  🏆 Recommended: High Honors / Competitive College Pathway (26+ Credits)
+                <div className="icon-text" style={{ fontWeight: 600, fontSize: '0.95rem' }}>
+                  <Icon className="ui-icon text-orange" name="trophy" size={16} />
+                  Recommended: High Honors / Competitive College Pathway (26+ Credits)
                 </div>
                 <div className="text-secondary text-sm">
                   Automatically sets 4 Math, 4 Science, 5 Social Studies, 4 World Language, and 4 AP/IB courses. Required for top-tier university admissions and major scholarships.
@@ -238,7 +241,12 @@ function Profile() {
             marginTop: '1rem'
           }}
         >
-          {saved ? '✓ Profile & Pathway Saved' : 'Save Profile & Update Graduation Requirements'}
+          {saved ? (
+            <span className="icon-text" style={{justifyContent: 'center'}}>
+              <Icon className="ui-icon" name="check" size={16} />
+              Profile & Pathway Saved
+            </span>
+          ) : 'Save Profile & Update Graduation Requirements'}
         </button>
       </form>
     </div>

@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { useStudent } from '../context/StudentContext';
 import { courseCatalog, getCoursesForGrade, prerequisitesMet, DEPARTMENTS } from '../data/courseCatalog';
 import type { Course } from '../data/courseCatalog';
+import { Icon } from '../components/Icons';
 
 // Fast Levenshtein distance for fuzzy matching (typo tolerance)
 function levenshteinDistance(str1: string, str2: string): number {
@@ -161,21 +162,27 @@ function Planner() {
         Four-Year Course Plan
       </h1>
       <p className="text-secondary mb-4 text-sm">
-        Tailored to: {student.schoolPathway === 'haas_to_public' ? 'Haas Hall ➔ Public Transfer Strategy' : student.schoolPathway === 'haas_all' ? 'Haas Hall Full Strategy' : 'Public USD Strategy'} · {student.diplomaPathway === 'high_honors' ? '🏆 High Honors Diploma' : student.diplomaPathway === 'honors' ? 'Honors Diploma' : 'Standard Diploma'}
+        Tailored to: {student.schoolPathway === 'haas_to_public' ? 'Haas Hall -> Public Transfer Strategy' : student.schoolPathway === 'haas_all' ? 'Haas Hall Full Strategy' : 'Public USD Strategy'} · {student.diplomaPathway === 'high_honors' ? (
+          <span className="icon-text">
+            <Icon className="ui-icon" name="trophy" size={15} />
+            High Honors Diploma
+          </span>
+        ) : student.diplomaPathway === 'honors' ? 'Honors Diploma' : 'Standard Diploma'}
       </p>
 
       {renderOptimizationAdvice()}
 
       {/* Search Bar with Typo-Tolerance */}
       <div className="mb-4" style={{position: 'relative'}}>
+        <Icon className="search-icon" name="search" size={18} />
         <input 
           type="text" 
-          placeholder="🔍 Search any course (e.g. 'ap calc', 'algebra', 'chemistry', 'journalism')..." 
+          placeholder="Search any course (e.g. 'ap calc', 'algebra', 'chemistry', 'journalism')..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           style={{
             width: '100%',
-            padding: '0.85rem 1.25rem',
+            padding: '0.85rem 3rem 0.85rem 2.75rem',
             fontSize: '1rem',
             borderRadius: '10px',
             border: '2px solid var(--accent-orange)',
@@ -186,6 +193,7 @@ function Planner() {
         />
         {searchQuery && (
           <button 
+            aria-label="Clear course search"
             onClick={() => setSearchQuery('')}
             style={{
               position: 'absolute',
@@ -199,7 +207,7 @@ function Planner() {
               fontSize: '1rem'
             }}
           >
-            ✕
+            <Icon className="ui-icon" name="x" size={18} />
           </button>
         )}
       </div>
@@ -249,7 +257,7 @@ function Planner() {
                 className={`sel-card ${isSelected ? 'selected' : ''}`}
                 onClick={() => toggleCourse(String(activeGrade), course.id)}
               >
-                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="checkbox">{isSelected ? <Icon className="ui-icon" name="check" size={13} /> : ''}</div>
                 <div className="sel-card-info">
                   <div className="sel-card-name">{course.name}</div>
                   <div className="sel-card-desc">{course.description}</div>

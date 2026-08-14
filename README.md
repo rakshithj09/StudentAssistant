@@ -1,6 +1,6 @@
-# Bentonville Student Assistant
+# Bentonville Student Planner
 
-Bentonville Student Assistant is a planned advisory tool and course planner for students in Bentonville, Arkansas, covering both public schools and the Haas school system. It aims to help students navigate their Student Success Plan (SSP), standardized testing (ACT/SAT), and extracurriculars through personalized optimization.
+Bentonville Student Planner is a planned advisory tool and course planner for students in Bentonville, Arkansas, covering both public schools and the Haas school system. It aims to help students navigate their Student Success Plan (SSP), standardized testing (ACT/SAT), and extracurriculars through personalized optimization.
 
 ## What the app does
 

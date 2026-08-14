@@ -1,4 +1,5 @@
 import { useStudent } from '../context/StudentContext';
+import { Icon } from '../components/Icons';
 
 function Home() {
   const { student, updateGradReq } = useStudent();
@@ -75,7 +76,12 @@ function Home() {
               <div className="progress-bar-bg">
                 <div className={`progress-bar-fill ${isComplete ? 'complete' : ''}`} style={{width: `${pct}%`}}></div>
               </div>
-              {isComplete && <div className="text-xs" style={{color: 'var(--accent-green)', marginTop: '-0.25rem', letterSpacing: '0.02em'}}>✓ COMPLETE</div>}
+              {isComplete && (
+                <div className="text-xs icon-text" style={{color: 'var(--accent-green)', marginTop: '-0.25rem', letterSpacing: '0.02em'}}>
+                  <Icon className="ui-icon" name="check" size={13} />
+                  COMPLETE
+                </div>
+              )}
             </div>
           );
         })}
@@ -85,17 +91,23 @@ function Home() {
       <h2 className="section-title">Priority Actions</h2>
       <div className="req-grid" style={{gridTemplateColumns: 'repeat(3, 1fr)'}}>
         <div className="white-card">
-          <div className="text-orange mb-2" style={{fontSize: '1.25rem'}}>○</div>
+          <div className="priority-icon text-orange">
+            <Icon className="ui-icon" name="circle" size={22} />
+          </div>
           <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Schedule PSAT Prep</h3>
           <p className="text-secondary text-sm">Start 1 practice test/month to prepare for PSAT.</p>
         </div>
         <div className="white-card">
-          <div style={{color: 'var(--accent-green)', marginBottom: '0.5rem', fontSize: '1.25rem'}}>△</div>
+          <div className="priority-icon" style={{color: 'var(--accent-green)'}}>
+            <Icon className="ui-icon" name="triangle" size={22} />
+          </div>
           <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Join HOSA by Fall</h3>
           <p className="text-secondary text-sm">HOSA aligns with your Pre-Med goal. Register before September.</p>
         </div>
         <div className="white-card">
-          <div className="text-muted mb-2" style={{fontSize: '1.25rem'}}>□</div>
+          <div className="priority-icon text-muted">
+            <Icon className="ui-icon" name="square" size={22} />
+          </div>
           <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Shadow a Physician</h3>
           <p className="text-secondary text-sm">Aim for 40+ hours before 11th grade applications.</p>
         </div>

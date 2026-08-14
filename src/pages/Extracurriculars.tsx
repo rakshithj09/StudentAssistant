@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useStudent } from '../context/StudentContext';
 import { getClubs, getSports, getServices } from '../data/activitiesData';
+import { Icon } from '../components/Icons';
 
 function Extracurriculars() {
   const { student, toggleActivity, toggleSport, toggleService } = useStudent();
@@ -49,7 +50,7 @@ function Extracurriculars() {
             const isSelected = student.selectedActivities.includes(item.id);
             return (
               <div key={item.id} className={`sel-card ${isSelected ? 'selected' : ''}`} onClick={() => toggleActivity(item.id)}>
-                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="checkbox">{isSelected ? <Icon className="ui-icon" name="check" size={13} /> : ''}</div>
                 <div className="sel-card-info">
                   <div className="sel-card-name">{item.name}</div>
                   <div className="sel-card-desc">{item.description}</div>
@@ -70,7 +71,7 @@ function Extracurriculars() {
             const isSelected = student.selectedSports.includes(item.id);
             return (
               <div key={item.id} className={`sel-card ${isSelected ? 'selected' : ''}`} onClick={() => toggleSport(item.id)}>
-                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="checkbox">{isSelected ? <Icon className="ui-icon" name="check" size={13} /> : ''}</div>
                 <div className="sel-card-info">
                   <div className="sel-card-name">{item.name}</div>
                   <div className="sel-card-desc">{item.description}</div>
@@ -92,7 +93,7 @@ function Extracurriculars() {
             const isSelected = student.selectedServices.includes(item.id);
             return (
               <div key={item.id} className={`sel-card ${isSelected ? 'selected' : ''}`} onClick={() => toggleService(item.id)}>
-                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="checkbox">{isSelected ? <Icon className="ui-icon" name="check" size={13} /> : ''}</div>
                 <div className="sel-card-info">
                   <div className="sel-card-name">{item.name}</div>
                   <div className="sel-card-desc">{item.description}</div>

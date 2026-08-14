@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useStudent } from '../context/StudentContext';
+import { Icon } from '../components/Icons';
 
 function TestPrep() {
   const { student, updateActScores, addTestAttempt, deleteTestAttempt } = useStudent();
@@ -78,7 +79,17 @@ function TestPrep() {
             fontSize: '0.85rem'
           }}
         >
-          {showAddForm ? '✕ Close Form' : '➕ Log New Test Attempt'}
+          {showAddForm ? (
+            <span className="icon-text">
+              <Icon className="ui-icon" name="x" size={16} />
+              Close Form
+            </span>
+          ) : (
+            <span className="icon-text">
+              <Icon className="ui-icon" name="plus" size={16} />
+              Log New Test Attempt
+            </span>
+          )}
         </button>
       </div>
 
@@ -173,7 +184,10 @@ function TestPrep() {
               cursor: 'pointer'
             }}
           >
-            ✓ Save Test Attempt to Log
+            <span className="icon-text">
+              <Icon className="ui-icon" name="check" size={16} />
+              Save Test Attempt to Log
+            </span>
           </button>
         </form>
       )}
@@ -230,7 +244,7 @@ function TestPrep() {
                 padding: '0.25rem'
               }}
             />
-            <span style={{fontSize: '1.5rem', color: 'white', fontWeight: 600}}>+</span>
+            <Icon className="ui-icon" name="plus" size={20} style={{color: 'white'}} />
           </div>
           <div className="text-orange" style={{fontSize: '0.75rem', marginTop: '0.35rem'}}>Spring Jr. Year</div>
         </div>
@@ -259,7 +273,7 @@ function TestPrep() {
                 padding: '0.25rem'
               }}
             />
-            <span style={{fontSize: '1.5rem', color: 'white', fontWeight: 600}}>+</span>
+            <Icon className="ui-icon" name="plus" size={20} style={{color: 'white'}} />
           </div>
           <div className="text-orange" style={{fontSize: '0.75rem', marginTop: '0.35rem'}}>{student.targetCollege}</div>
         </div>
@@ -307,11 +321,13 @@ function TestPrep() {
                   <td className="text-secondary text-sm">{attempt.notes || '—'}</td>
                   <td style={{textAlign: 'right'}}>
                     <button 
+                      aria-label={`Delete ${attempt.testType} attempt from ${attempt.date}`}
                       onClick={() => deleteTestAttempt(attempt.id)}
+                      className="action-icon"
                       style={{background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', fontSize: '0.85rem'}}
                       title="Delete attempt"
                     >
-                      🗑️
+                      <Icon className="ui-icon" name="trash" size={16} />
                     </button>
                   </td>
                 </tr>
@@ -346,7 +362,7 @@ function TestPrep() {
                 backgroundColor: '#ffffff'
               }}
             />
-            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>→ {Math.min(36, (scores.english || 0) + 5)}</span>
+            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>to {Math.min(36, (scores.english || 0) + 5)}</span>
           </div>
           <div className="text-secondary" style={{fontSize: '0.75rem'}}>Grammar & rhetoric rules</div>
         </div>
@@ -372,7 +388,7 @@ function TestPrep() {
                 backgroundColor: '#ffffff'
               }}
             />
-            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>→ {Math.min(36, (scores.math || 0) + 5)}</span>
+            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>to {Math.min(36, (scores.math || 0) + 5)}</span>
           </div>
           <div className="text-secondary" style={{fontSize: '0.75rem'}}>Advanced algebra & trig</div>
         </div>
@@ -398,7 +414,7 @@ function TestPrep() {
                 backgroundColor: '#ffffff'
               }}
             />
-            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>→ {Math.min(36, (scores.reading || 0) + 5)}</span>
+            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>to {Math.min(36, (scores.reading || 0) + 5)}</span>
           </div>
           <div className="text-secondary" style={{fontSize: '0.75rem'}}>Passage timing & focus</div>
         </div>
@@ -424,7 +440,7 @@ function TestPrep() {
                 backgroundColor: '#ffffff'
               }}
             />
-            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>→ {Math.min(36, (scores.science || 0) + 5)}</span>
+            <span style={{color: '#15803d', fontSize: '0.9rem', fontWeight: 600}}>to {Math.min(36, (scores.science || 0) + 5)}</span>
           </div>
           <div className="text-secondary" style={{fontSize: '0.75rem'}}>Data & chart analysis</div>
         </div>

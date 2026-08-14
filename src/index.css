@@ -49,9 +49,10 @@ a { text-decoration: none; color: inherit; }
 /* Navigation */
 .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; max-width: var(--max-width); margin: 0 auto; width: 100%; }
 .nav-brand { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.1rem; }
-.brand-icon { width: 32px; height: 32px; background-color: var(--bg-navy); color: white; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; }
+.brand-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); overflow: hidden; }
+.brand-mark { width: 32px; height: 32px; display: block; }
 .nav-links { display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); }
-.nav-link { padding: 0.4rem 0.75rem; border-radius: 99px; transition: all 0.2s; white-space: nowrap; }
+.nav-link { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.75rem; border-radius: 99px; transition: all 0.2s; white-space: nowrap; }
 .nav-link:hover { color: var(--text-primary); }
 .nav-link.active { background-color: var(--bg-navy); color: white; }
 
@@ -86,6 +87,22 @@ a { text-decoration: none; color: inherit; }
 .num-editor { display: inline-flex; align-items: center; gap: 0.25rem; }
 .num-editor button { width: 20px; height: 20px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-main); cursor: pointer; font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all 0.15s; }
 .num-editor button:hover { background: var(--bg-navy); color: white; border-color: var(--bg-navy); }
+
+/* Icons */
+.ui-icon { flex: 0 0 auto; }
+.icon-text { display: inline-flex; align-items: center; gap: 0.4rem; }
+.icon-button { display: inline-flex; align-items: center; justify-content: center; color: inherit; }
+.icon-spin { animation: icon-spin 1s linear infinite; }
+.action-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; }
+.action-icon:hover { background: rgba(239,68,68,0.08); }
+.search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--accent-orange); pointer-events: none; }
+.priority-icon { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; margin-bottom: 0.5rem; }
+.checkline { display: flex; align-items: flex-start; gap: 0.5rem; }
+.checkline .ui-icon { margin-top: 0.1rem; color: var(--accent-green); }
+
+@keyframes icon-spin {
+  to { transform: rotate(360deg); }
+}
 
 /* Course Table */
 .course-table { width: 100%; border-collapse: collapse; background-color: var(--bg-card); border-radius: var(--radius-md); overflow: hidden; }

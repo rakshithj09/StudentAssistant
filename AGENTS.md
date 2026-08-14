@@ -1,6 +1,6 @@
-# Bentonville Student Assistant Engineering and Security Rules
+# Bentonville Student Planner Engineering and Security Rules
 
-This file defines non-negotiable engineering rules for any agent or contributor working in the Bentonville Student Assistant repository. Follow these rules for every future code change, feature, fix, refactor, dependency update, API route, database change, deployment change, or documentation update.
+This file defines non-negotiable engineering rules for any agent or contributor working in the Bentonville Student Planner repository. Follow these rules for every future code change, feature, fix, refactor, dependency update, API route, database change, deployment change, or documentation update.
 
 If a requested change conflicts with this file, stop and explain the conflict. Do not weaken security, privacy, access control, or data integrity to make a feature work.
 
