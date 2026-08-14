@@ -1,61 +1,110 @@
-
+import { useState } from 'react';
+import { useStudent } from '../context/StudentContext';
+import { getClubs, getSports, getServices } from '../data/activitiesData';
 
 function Extracurriculars() {
+  const { student, toggleActivity, toggleSport, toggleService } = useStudent();
+  const [tab, setTab] = useState<'clubs' | 'sports' | 'service'>('clubs');
+
+  const clubs = getClubs();
+  const sports = getSports();
+  const services = getServices();
+
+  const totalSelected = student.selectedActivities.length + student.selectedSports.length + student.selectedServices.length;
+
   return (
-    <div className="container mt-8 mb-8 animate-fade-in">
-      <h1 className="heading-xl mb-4 text-center">Mastering <span className="gradient-text">Extracurriculars</span></h1>
-      <p className="hero-subtitle mb-8 text-center">Building a compelling resume for college admissions.</p>
+    <div>
+      <h1 className="font-serif" style={{fontSize: '2.25rem', marginBottom: '0.35rem', color: 'var(--bg-navy)'}}>
+        Activities & Sports
+      </h1>
+      <p className="text-secondary text-sm mb-4">
+        Select clubs, sports, and community service — these feed into your schedule
+      </p>
 
-      <div className="card mb-8">
-        <h2 className="heading-md mb-4">When to Start?</h2>
-        <p className="text-secondary mb-4">
-          The best time to start exploring extracurricular activities is in <strong>Junior High (7th-8th grade)</strong>. Use this time to try out various clubs, sports, and volunteer opportunities without the pressure of it "counting" for college. 
-        </p>
-        <p className="text-secondary">
-          By <strong>9th grade</strong>, you should aim to narrow down your interests to 2-3 core activities that you are passionate about and can commit to long-term. <strong>Depth and leadership</strong> in a few areas are far more impressive to colleges than surface-level participation in many.
-        </p>
+      {/* Summary */}
+      <div className="summary-bar mb-4">
+        <span><strong>{student.selectedActivities.length}</strong> clubs</span>
+        <span><strong>{student.selectedSports.length}</strong> sports</span>
+        <span><strong>{student.selectedServices.length}</strong> service</span>
+        <span><strong>{totalSelected}</strong> total selected</span>
       </div>
 
-      <h2 className="heading-lg mb-6 mt-8">Recommended Categories</h2>
-
-      <div className="features-grid">
-        <div className="card">
-          <div className="feature-icon">🚀</div>
-          <h3 className="heading-md mb-2">Leadership & Service</h3>
-          <p className="text-secondary mb-4">Colleges look for students who make an impact in their community.</p>
-          <ul className="text-secondary" style={{ paddingLeft: '1.5rem' }}>
-            <li>Student Council / Government</li>
-            <li>National Honor Society (NHS) / Beta Club</li>
-            <li>Consistent Volunteering (e.g., local shelters, library)</li>
-            <li>Starting your own community service project</li>
-          </ul>
-        </div>
-
-        <div className="card">
-          <div className="feature-icon">🔬</div>
-          <h3 className="heading-md mb-2">Academic & Career Focused</h3>
-          <p className="text-secondary mb-4">Showcase your passion for your future major.</p>
-          <ul className="text-secondary" style={{ paddingLeft: '1.5rem' }}>
-            <li>Debate Team / Forensics</li>
-            <li>Robotics Club (VEX, FIRST)</li>
-            <li>Science Olympiad / Mathletes</li>
-            <li>Bentonville's Ignite Professional Studies (11th/12th grade)</li>
-            <li>FBLA / DECA (Business)</li>
-          </ul>
-        </div>
-
-        <div className="card">
-          <div className="feature-icon">🎨</div>
-          <h3 className="heading-md mb-2">Arts & Athletics</h3>
-          <p className="text-secondary mb-4">Demonstrate dedication, teamwork, and creativity.</p>
-          <ul className="text-secondary" style={{ paddingLeft: '1.5rem' }}>
-            <li>Band, Choir, or Orchestra</li>
-            <li>Theater Productions</li>
-            <li>Varsity or Junior Varsity Sports</li>
-            <li>Club or Travel Sports Teams</li>
-          </ul>
-        </div>
+      {/* Tabs */}
+      <div className="tab-bar">
+        <button className={`tab-btn ${tab === 'clubs' ? 'active' : ''}`} onClick={() => setTab('clubs')}>
+          Clubs & Orgs ({clubs.length})
+        </button>
+        <button className={`tab-btn ${tab === 'sports' ? 'active' : ''}`} onClick={() => setTab('sports')}>
+          Sports ({sports.length})
+        </button>
+        <button className={`tab-btn ${tab === 'service' ? 'active' : ''}`} onClick={() => setTab('service')}>
+          Community Service ({services.length})
+        </button>
       </div>
+
+      {/* Clubs Tab */}
+      {tab === 'clubs' && (
+        <div className="sel-grid">
+          {clubs.map(item => {
+            const isSelected = student.selectedActivities.includes(item.id);
+            return (
+              <div key={item.id} className={`sel-card ${isSelected ? 'selected' : ''}`} onClick={() => toggleActivity(item.id)}>
+                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="sel-card-info">
+                  <div className="sel-card-name">{item.name}</div>
+                  <div className="sel-card-desc">{item.description}</div>
+                  <div className="sel-card-tags">
+                    <span className="sel-card-tag">{item.tag}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Sports Tab */}
+      {tab === 'sports' && (
+        <div className="sel-grid">
+          {sports.map(item => {
+            const isSelected = student.selectedSports.includes(item.id);
+            return (
+              <div key={item.id} className={`sel-card ${isSelected ? 'selected' : ''}`} onClick={() => toggleSport(item.id)}>
+                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="sel-card-info">
+                  <div className="sel-card-name">{item.name}</div>
+                  <div className="sel-card-desc">{item.description}</div>
+                  <div className="sel-card-tags">
+                    <span className="sel-card-tag">{item.tag}</span>
+                    {item.season && <span className="sel-card-tag" style={{background: '#dbeafe', color: '#1d4ed8'}}>{item.season}</span>}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Service Tab */}
+      {tab === 'service' && (
+        <div className="sel-grid">
+          {services.map(item => {
+            const isSelected = student.selectedServices.includes(item.id);
+            return (
+              <div key={item.id} className={`sel-card ${isSelected ? 'selected' : ''}`} onClick={() => toggleService(item.id)}>
+                <div className="checkbox">{isSelected ? '✓' : ''}</div>
+                <div className="sel-card-info">
+                  <div className="sel-card-name">{item.name}</div>
+                  <div className="sel-card-desc">{item.description}</div>
+                  <div className="sel-card-tags">
+                    <span className="sel-card-tag">{item.tag}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
