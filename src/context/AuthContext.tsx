@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -15,6 +16,7 @@ interface AuthContextType {
   authError: string;
   clearAuthError: () => void;
   createAccountWithEmail: (email: string, password: string) => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
   signInWithEmail: (email: string, password: string) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   logOut: () => Promise<void>;
@@ -54,6 +56,8 @@ const getAuthMessage = (error: unknown): string => {
   switch (authError.code) {
     case 'auth/email-already-in-use':
       return 'An account already exists for that email.';
+    case 'auth/invalid-email':
+      return 'Enter a valid email address.';
     case 'auth/invalid-credential':
     case 'auth/wrong-password':
     case 'auth/user-not-found':
@@ -106,6 +110,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
       } catch (error) {
+        setAuthError(getAuthMessage(error));
+        throw error;
+      }
+    },
+    resetPassword: async (email) => {
+      setAuthError('');
+      try {
+        await sendPasswordResetEmail(auth, email);
+      } catch (error) {
+        const authErrorDetails = readAuthError(error);
+        if (authErrorDetails?.code === 'auth/user-not-found') {
+          return;
+        }
         setAuthError(getAuthMessage(error));
         throw error;
       }

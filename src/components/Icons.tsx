@@ -2,7 +2,10 @@ import type { ReactElement, SVGProps } from 'react';
 
 type IconName =
   | 'check'
+  | 'eye'
+  | 'eyeOff'
   | 'loader'
+  | 'mail'
   | 'plus'
   | 'search'
   | 'settings'
@@ -17,6 +20,20 @@ type IconProps = SVGProps<SVGSVGElement> & {
 
 const paths: Record<IconName, ReactElement> = {
   check: <path d="m20 6-11 11-5-5" />,
+  eye: (
+    <>
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  eyeOff: (
+    <>
+      <path d="M3 3l18 18" />
+      <path d="M10.6 10.6A3 3 0 0 0 12 15a3 3 0 0 0 2.4-1.2" />
+      <path d="M9.9 5.2A10.6 10.6 0 0 1 12 5c6.5 0 10 7 10 7a17.7 17.7 0 0 1-3.1 4.1" />
+      <path d="M6.6 6.6C3.6 8.6 2 12 2 12s3.5 7 10 7c1.5 0 2.9-.4 4.1-1" />
+    </>
+  ),
   loader: (
     <>
       <path d="M12 2v4" />
@@ -27,6 +44,12 @@ const paths: Record<IconName, ReactElement> = {
       <path d="M18 12h4" />
       <path d="m4.93 19.07 2.83-2.83" />
       <path d="m16.24 7.76 2.83-2.83" />
+    </>
+  ),
+  mail: (
+    <>
+      <rect height="16" rx="2" width="20" x="2" y="4" />
+      <path d="m22 7-10 6L2 7" />
     </>
   ),
   plus: (

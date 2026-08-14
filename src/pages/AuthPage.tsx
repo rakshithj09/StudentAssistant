@@ -1,16 +1,30 @@
 import { useState, type FormEvent } from 'react';
+import { Icon } from '../components/Icons';
 import { useAuth } from '../context/AuthContext';
 
+type AuthNotice = {
+  kind: 'success' | 'error';
+  message: string;
+};
+
 function AuthPage() {
-  const { authError, clearAuthError, createAccountWithEmail, signInWithEmail, signInWithGoogle } = useAuth();
+  const { authError, clearAuthError, createAccountWithEmail, resetPassword, signInWithEmail, signInWithGoogle } = useAuth();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [googleSubmitting, setGoogleSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [authNotice, setAuthNotice] = useState<AuthNotice | null>(null);
+
+  const clearMessages = () => {
+    clearAuthError();
+    setAuthNotice(null);
+  };
 
   const handleEmailSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    setAuthNotice(null);
     setSubmitting(true);
     try {
       if (mode === 'signup') {
@@ -26,6 +40,7 @@ function AuthPage() {
   };
 
   const handleGoogleSignIn = async () => {
+    setAuthNotice(null);
     setSubmitting(true);
     setGoogleSubmitting(true);
     try {
@@ -34,6 +49,29 @@ function AuthPage() {
       // AuthContext turns Firebase errors into user-facing form text.
     } finally {
       setGoogleSubmitting(false);
+      setSubmitting(false);
+    }
+  };
+
+  const handleResetPassword = async () => {
+    const resetEmail = email.trim();
+
+    if (!resetEmail) {
+      setAuthNotice({ kind: 'error', message: 'Enter your email address first, then request a reset link.' });
+      return;
+    }
+
+    setAuthNotice(null);
+    setSubmitting(true);
+    try {
+      await resetPassword(resetEmail);
+      setAuthNotice({
+        kind: 'success',
+        message: 'If an account exists for that email, a password reset link is on the way.',
+      });
+    } catch {
+      // AuthContext turns Firebase errors into user-facing form text.
+    } finally {
       setSubmitting(false);
     }
   };
@@ -65,7 +103,7 @@ function AuthPage() {
               type="email"
               value={email}
               onChange={(event) => {
-                clearAuthError();
+                clearMessages();
                 setEmail(event.target.value);
               }}
               autoComplete="email"
@@ -75,33 +113,63 @@ function AuthPage() {
 
           <div>
             <label htmlFor="auth-password">Password</label>
-            <input
-              id="auth-password"
-              type="password"
-              value={password}
-              onChange={(event) => {
-                clearAuthError();
-                setPassword(event.target.value);
-              }}
-              autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
-              minLength={6}
-              required
-            />
+            <div className="password-field">
+              <input
+                id="auth-password"
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(event) => {
+                  clearMessages();
+                  setPassword(event.target.value);
+                }}
+                autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
+                minLength={6}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword((current) => !current)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                title={showPassword ? 'Hide password' : 'Show password'}
+              >
+                <Icon className="ui-icon" name={showPassword ? 'eyeOff' : 'eye'} size={18} />
+              </button>
+            </div>
           </div>
 
-          {authError ? <p className="form-error" role="alert">{authError}</p> : null}
+          {authError ? (
+            <div className="auth-message auth-message-error" role="alert">
+              <Icon className="ui-icon" name="x" size={16} />
+              <span>{authError}</span>
+            </div>
+          ) : null}
+
+          {authNotice ? (
+            <div className={`auth-message auth-message-${authNotice.kind}`} role={authNotice.kind === 'error' ? 'alert' : 'status'}>
+              <Icon className="ui-icon" name={authNotice.kind === 'success' ? 'mail' : 'x'} size={16} />
+              <span>{authNotice.message}</span>
+            </div>
+          ) : null}
 
           <button type="submit" className="primary-btn" disabled={submitting}>
             {submitting ? 'Please wait...' : mode === 'signup' ? 'Create account' : 'Sign in'}
           </button>
         </form>
 
+        {mode === 'signin' ? (
+          <button type="button" className="text-btn auth-reset-btn" onClick={handleResetPassword} disabled={submitting}>
+            Reset password
+          </button>
+        ) : null}
+
         <button
           type="button"
           className="text-btn"
           onClick={() => {
-            clearAuthError();
+            clearMessages();
             setMode(mode === 'signup' ? 'signin' : 'signup');
+            setShowPassword(false);
           }}
         >
           {mode === 'signup' ? 'Already have an account? Sign in' : 'Need an account? Create one'}
