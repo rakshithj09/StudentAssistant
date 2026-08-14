@@ -1,58 +1,106 @@
-import { Link } from 'react-router-dom';
+import { useStudent } from '../context/StudentContext';
 
 function Home() {
+  const { student, updateGradReq } = useStudent();
+
+  const getSchoolLabel = () => {
+    if (student.currentSchool === 'haas') return 'Haas Hall Academy';
+    if (student.currentSchool === 'bwhs') return 'Bentonville West High School (BWHS)';
+    return 'Bentonville High School (BHS)';
+  };
+  const getGradeLabel = () => `${student.grade}th Grade`;
+  const getClassYear = () => {
+    const yearsLeft = 12 - parseInt(student.grade);
+    return 2026 + yearsLeft;
+  };
+  const yearsToGraduation = Math.max(0, 12 - parseInt(student.grade));
+
+  const subjects = Object.keys(student.gradRequirements);
+
   return (
-    <main>
-      <section className="hero container">
-        <h1 className="heading-xl mb-4 animate-fade-in">
-          Plan your path with <br /><span className="gradient-text">Confidence</span>
+    <div>
+      {/* Hero */}
+      <div className="navy-card">
+        <div className="text-xs text-orange" style={{marginBottom: '0.75rem'}}>YOUR STUDENT SUCCESS PLAN</div>
+        <h1 className="hero-greeting font-serif">
+          Good morning,<br/><i>{student.name}.</i>
         </h1>
-        <p className="hero-subtitle mb-8 animate-fade-in delay-100">
-          The ultimate tool for Bentonville and Haas Hall Academy students to navigate their Student Success Plan, test prep, and extracurriculars.
+        <p className="text-secondary mt-4">
+          {getGradeLabel()} · {getSchoolLabel()} · Class of {getClassYear()}
         </p>
-        <div className="flex justify-center gap-4 animate-fade-in delay-200">
-          <Link to="/planner" className="btn btn-primary">Start Planning</Link>
-          <Link to="/test-prep" className="btn btn-secondary">Learn More</Link>
-        </div>
-      </section>
-
-      <section id="features" className="container mt-8">
-        <h2 className="heading-lg text-center mb-8">Empowering Your Future</h2>
-        <div className="features-grid">
-          <div className="card">
-            <div className="feature-icon">📚</div>
-            <h3 className="heading-md mb-2">Course Planner</h3>
-            <p className="text-secondary">
-              Build your personalized Student Success Plan (SSP) tailored to graduation requirements and your career goals.
-            </p>
+        <div className="stats-container">
+          <div className="stat-box">
+            <div className="stat-box-title">GPA</div>
+            <div className="stat-box-value">{student.gpa}</div>
           </div>
-          
-          <div className="card">
-            <div className="feature-icon">🎓</div>
-            <h3 className="heading-md mb-2">ACT/SAT Strategy</h3>
-            <p className="text-secondary">
-              Get expert advice on when to take standardized tests and which one is right for you, maximizing your college opportunities.
-            </p>
+          <div className="stat-box">
+            <div className="stat-box-title">Credits Earned</div>
+            <div className="stat-box-value">
+              {Object.values(student.gradRequirements).reduce((s, r) => s + r.earned, 0)}
+              <span style={{fontSize: '1rem', color: 'rgba(255,255,255,0.5)'}}>
+                /{Object.values(student.gradRequirements).reduce((s, r) => s + r.needed, 0)}
+              </span>
+            </div>
           </div>
-
-          <div className="card">
-            <div className="feature-icon">🏆</div>
-            <h3 className="heading-md mb-2">Extracurriculars</h3>
-            <p className="text-secondary">
-              Discover the best extracurricular activities to build your resume and find out when you should start them.
-            </p>
-          </div>
-
-          <div className="card">
-            <div className="feature-icon">🗺️</div>
-            <h3 className="heading-md mb-2">Optimized Routing</h3>
-            <p className="text-secondary">
-              Explore the recommended pathway of foundational math at Haas Hall Academy followed by public school test prep.
-            </p>
+          <div className="stat-box">
+            <div className="stat-box-title">Target</div>
+            <div className="stat-box-value text-orange" style={{fontSize: '1.1rem', marginTop: '0.15rem'}}>{student.targetCollege}</div>
           </div>
         </div>
-      </section>
-    </main>
+        <div style={{position: 'absolute', right: '3rem', top: '50%', transform: 'translateY(-50%)', textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2.5rem'}}>
+          <div className="font-serif" style={{fontSize: '4.5rem', lineHeight: '1', color: 'rgba(255,255,255,0.2)'}}>{yearsToGraduation}</div>
+          <div className="text-xs text-secondary mt-2">YEARS TO GRAD</div>
+        </div>
+      </div>
+
+      {/* Graduation Requirements — Editable */}
+      <h2 className="section-title">Graduation Requirements <span className="text-sm text-secondary" style={{fontFamily: 'var(--font-sans)', fontWeight: 400, textTransform: 'none', letterSpacing: 0}}>— click +/- to edit</span></h2>
+      <div className="req-grid">
+        {subjects.map(subj => {
+          const r = student.gradRequirements[subj];
+          const pct = r.needed > 0 ? Math.min(100, (r.earned / r.needed) * 100) : 0;
+          const isComplete = r.earned >= r.needed && r.needed > 0;
+          return (
+            <div className="white-card req-card" key={subj}>
+              <div className="req-header">
+                <span>{subj}</span>
+                <div className="num-editor">
+                  <button onClick={() => updateGradReq(subj, 'earned', r.earned - 1)}>−</button>
+                  <span className="text-sm" style={{minWidth: '45px', textAlign: 'center', color: isComplete ? 'var(--accent-green)' : 'var(--text-muted)'}}>
+                    {r.earned} / {r.needed}
+                  </span>
+                  <button onClick={() => updateGradReq(subj, 'earned', r.earned + 1)}>+</button>
+                </div>
+              </div>
+              <div className="progress-bar-bg">
+                <div className={`progress-bar-fill ${isComplete ? 'complete' : ''}`} style={{width: `${pct}%`}}></div>
+              </div>
+              {isComplete && <div className="text-xs" style={{color: 'var(--accent-green)', marginTop: '-0.25rem', letterSpacing: '0.02em'}}>✓ COMPLETE</div>}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Priority Actions */}
+      <h2 className="section-title">Priority Actions</h2>
+      <div className="req-grid" style={{gridTemplateColumns: 'repeat(3, 1fr)'}}>
+        <div className="white-card">
+          <div className="text-orange mb-2" style={{fontSize: '1.25rem'}}>○</div>
+          <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Schedule PSAT Prep</h3>
+          <p className="text-secondary text-sm">Start 1 practice test/month to prepare for PSAT.</p>
+        </div>
+        <div className="white-card">
+          <div style={{color: 'var(--accent-green)', marginBottom: '0.5rem', fontSize: '1.25rem'}}>△</div>
+          <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Join HOSA by Fall</h3>
+          <p className="text-secondary text-sm">HOSA aligns with your Pre-Med goal. Register before September.</p>
+        </div>
+        <div className="white-card">
+          <div className="text-muted mb-2" style={{fontSize: '1.25rem'}}>□</div>
+          <h3 className="font-sans" style={{fontSize: '0.95rem', marginBottom: '0.35rem'}}>Shadow a Physician</h3>
+          <p className="text-secondary text-sm">Aim for 40+ hours before 11th grade applications.</p>
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -1,0 +1,3420 @@
+[
+  {
+    "id": "410100",
+    "name": "Pre-AP English I",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP English I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "510040",
+    "name": "ESL English I",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "ESL English I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "PAPENG",
+    "name": "Pre-AP English I w/ Personal Comm",
+    "department": "English",
+    "credits": 1.5,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP English I w/ Personal Comm - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "511030",
+    "name": "ESL English II",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "ESL English II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "411101",
+    "name": "Pre-AP English II",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP English II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "412001",
+    "name": "English III",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "English III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "512030",
+    "name": "ESL English III",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "ESL English III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "517031",
+    "name": "AP English Language and Composition",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP English Language and Composition - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "517050",
+    "name": "IB English A: Literature HL 1",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB English A: Literature HL 1 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "413010",
+    "name": "Transitional English IV (12)",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Transitional English IV (12) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "513030",
+    "name": "ESL English IV",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "ESL English IV - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "517041",
+    "name": "AP English Literature and Composition",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP English Literature and Composition - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "517080",
+    "name": "IB English A: Literature HL 2",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB English A: Literature HL 2 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "517070",
+    "name": "AP Research",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Research - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "519930",
+    "name": "NWACC ENGL 1013 Comp I",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC ENGL 1013 Comp I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "51994D",
+    "name": "NWACC ENGL 1023 Comp II",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC ENGL 1023 Comp II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "51400D",
+    "name": "NWACC COMM 1303 Oral Comm",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC COMM 1303 Oral Comm - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "417010",
+    "name": "Creative Writing",
+    "department": "English",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Creative Writing - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "419111",
+    "name": "Strategic Reading 9",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Strategic Reading 9 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "419120",
+    "name": "Strategic Reading 10",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Strategic Reading 10 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414050",
+    "name": "Debate I (Competitive Speech)",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Debate I (Competitive Speech) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414060",
+    "name": "Debate II",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Debate II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414070",
+    "name": "Debate III",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Debate III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414080",
+    "name": "Debate IV",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Debate IV - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414020",
+    "name": "Forensics I (Competitive Speech)",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Forensics I (Competitive Speech) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414030",
+    "name": "Forensics II",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Forensics II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414040",
+    "name": "Forensics III",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Forensics III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "414090",
+    "name": "Forensics IV",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Forensics IV - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "415001",
+    "name": "Journalism I",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Journalism I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "415010",
+    "name": "Journalism II (Yearbook)",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Journalism II (Yearbook) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "415020",
+    "name": "Journalism III (Yearbook)",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Journalism III (Yearbook) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "415032",
+    "name": "Journalism IV (Yearbook)",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Journalism IV (Yearbook) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "51906F",
+    "name": "Literary Magazine I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Literary Magazine I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "51906I",
+    "name": "Literary Magazine II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Literary Magazine II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "51906H",
+    "name": "Literary Magazine III",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Literary Magazine III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "51906G",
+    "name": "Media Literacy",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Media Literacy - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "519060",
+    "name": "Mythology",
+    "department": "English",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Mythology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "419130",
+    "name": "Academic Reading 9",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Academic Reading 9 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "419140",
+    "name": "Academic Reading 10",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Academic Reading 10 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "419150",
+    "name": "Academic Reading 11",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Academic Reading 11 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "419160",
+    "name": "Academic Reading I2",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Academic Reading I2 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "430300",
+    "name": "Pre-AP Algebra I",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP Algebra I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "431300",
+    "name": "Pre-AP Geometry with Statistics",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP Geometry with Statistics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "431301",
+    "name": "Adv. Pre-AP Geometry with Statistics",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Adv. Pre-AP Geometry with Statistics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "432001",
+    "name": "Algebra II",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Algebra II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "43200A",
+    "name": "Advanced Algebra II",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Advanced Algebra II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "439130",
+    "name": "Technical Math",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Technical Math - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "439120",
+    "name": "College Prep Quantitative Reasoning",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "College Prep Quantitative Reasoning - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "439090",
+    "name": "Statistics",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Statistics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "439071",
+    "name": "Algebra III",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Algebra III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "533030",
+    "name": "AP Precalculus",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Precalculus - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "539031",
+    "name": "AP Statistics",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Statistics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "534041",
+    "name": "AP Calculus AB",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Calculus AB - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "534051",
+    "name": "AP Calculus BC",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Calculus BC - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "539160",
+    "name": "IB Math: Apps and Interp I SL (BHS only)",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Math: Apps and Interp I SL (BHS only) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "539170",
+    "name": "IB Math: Apps and Interp II SL (BHS only)",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Math: Apps and Interp II SL (BHS only) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "53990N",
+    "name": "Concurrent Credit College Algebra",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "Concurrent Credit College Algebra - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "539980",
+    "name": "Concurrent Credit College Finite",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "Concurrent Credit College Finite - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "539190",
+    "name": "Concurrent Credit College Trigonometry",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "Concurrent Credit College Trigonometry - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "596000",
+    "name": "Critical Algebra 1",
+    "department": "Math",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Critical Algebra 1 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "423001",
+    "name": "Physical Science-Integrated",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Physical Science-Integrated - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "420101",
+    "name": "Pre-AP Biology",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP Biology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "520031",
+    "name": "AP Biology",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Biology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "529030",
+    "name": "IB Biology SL",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Biology SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "421001",
+    "name": "Chemistry-Integrated",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Chemistry-Integrated - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "421301",
+    "name": "Pre-AP Chemistry",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP Chemistry - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "521031",
+    "name": "AP Chemistry",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Chemistry - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "529931",
+    "name": "NWACC CHEM 1104 Chemistry I",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC CHEM 1104 Chemistry I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "529932",
+    "name": "NWACC CHEM 1124 Chemistry II",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC CHEM 1124 Chemistry II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "422010",
+    "name": "Physics",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Physics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "522080",
+    "name": "AP Physics 1",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Physics 1 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "522090",
+    "name": "AP Physics 2",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Physics 2 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "522051",
+    "name": "AP Physics C: Mechanics",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Physics C: Mechanics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "522065",
+    "name": "IB Physics I",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Physics I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "522066",
+    "name": "IB Physics II",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Physics II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "424020",
+    "name": "Environmental Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Environmental Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "523031",
+    "name": "AP Environmental Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Environmental Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "529010",
+    "name": "Zoology",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Zoology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "424031",
+    "name": "Anatomy & Physiology",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Anatomy & Physiology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "425050",
+    "name": "Astronomy",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Astronomy - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "579081",
+    "name": "AP Human Geography",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Human Geography - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "471101",
+    "name": "Pre-AP World History and Geography",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP World History and Geography - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "571021",
+    "name": "AP World History",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP World History - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "470003",
+    "name": "U.S. History Since 1929",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "U.S. History Since 1929 - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "570021",
+    "name": "AP United States History",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP United States History - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "570051",
+    "name": "IB History of the Americas HL I",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB History of the Americas HL I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "570053",
+    "name": "IB History of the Americas HL II",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB History of the Americas HL II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "472000",
+    "name": "Civics",
+    "department": "Social Studies",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Civics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "474301",
+    "name": "Economics w/ Personal Finance",
+    "department": "Social Studies",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Economics w/ Personal Finance - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "474500",
+    "name": "Sociology",
+    "department": "Social Studies",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Sociology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "579121",
+    "name": "AP Psychology",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Psychology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "579033",
+    "name": "IB Psychology HL I",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Psychology HL I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "579035",
+    "name": "IB Psychology HL II",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Psychology HL II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "579171",
+    "name": "AP European History",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP European History - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "579020",
+    "name": "IB World Religions SL",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB World Religions SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "447001",
+    "name": "Chinese I",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Chinese I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "447011",
+    "name": "Chinese II",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Chinese II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "447030",
+    "name": "Chinese III Advanced",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Chinese III Advanced - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "447040",
+    "name": "Chinese IV Advanced",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Chinese IV Advanced - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "547070",
+    "name": "IB Chinese SL",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Chinese SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "441001",
+    "name": "French I",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "French I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "441011",
+    "name": "French II",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "French II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "441033",
+    "name": "French III Advanced",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "French III Advanced - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "541061",
+    "name": "AP French Language & Culture",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP French Language & Culture - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "541080",
+    "name": "IB French SL",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB French SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "440001",
+    "name": "Spanish I",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Spanish I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "440021",
+    "name": "Spanish II",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Spanish II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "440033",
+    "name": "Spanish III Advanced",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Spanish III Advanced - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "440043",
+    "name": "Spanish IV Advanced",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Spanish IV Advanced - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "540071",
+    "name": "AP Spanish Language and Culture",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Spanish Language and Culture - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "540080",
+    "name": "AP Spanish Literature and Culture",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Spanish Literature and Culture - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "540021",
+    "name": "IB Spanish SL",
+    "department": "World Language",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Spanish SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "491150",
+    "name": "Introduction to Agriculture",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Introduction to Agriculture - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "491170",
+    "name": "CASE Plant Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "CASE Plant Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "491160",
+    "name": "CASE Animal Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "CASE Animal Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "491460",
+    "name": "Veterinary Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Veterinary Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "596402",
+    "name": "Outdoor Recreation Industry",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Outdoor Recreation Industry - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494701",
+    "name": "Intro to Architecture & Civil Engineering",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Intro to Architecture & Civil Engineering - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494715",
+    "name": "Architecture & Civil Engineering I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Architecture & Civil Engineering I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494721",
+    "name": "Architecture & Civil Engineering Lab",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Architecture & Civil Engineering Lab - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495440",
+    "name": "Architecture & Civil Engineering II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Architecture & Civil Engineering II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "492120",
+    "name": "Introduction to Business",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Introduction to Business - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "491990",
+    "name": "Personal Finance",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Personal Finance - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "492700",
+    "name": "Small Business Operations",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Small Business Operations - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "492770",
+    "name": "Supply Chain & Logistics I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Supply Chain & Logistics I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "490830",
+    "name": "Supply Chain & Logistics II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Supply Chain & Logistics II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "492290",
+    "name": "Banking & Finance I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Banking & Finance I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "490860",
+    "name": "Banking & Finance II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Banking & Finance II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "592200",
+    "name": "IB Business Management SL",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Business Management SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465070",
+    "name": "Introduction to Computer Science",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Introduction to Computer Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465180",
+    "name": "Information Technology & Security",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Information Technology & Security - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465290",
+    "name": "Cybersecurity",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Cybersecurity - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465080",
+    "name": "Software Development",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Software Development - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465090",
+    "name": "Desktop Application Development",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Desktop Application Development - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "565030",
+    "name": "AP Computer Science Principles",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Computer Science Principles - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "565130",
+    "name": "AP Computer Science A",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Computer Science A - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "CSIWTD",
+    "name": "Computer Science Internship",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Computer Science Internship - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465580",
+    "name": "Robot: Phys Comput w/Embedded Systems",
+    "department": "English",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Robot: Phys Comput w/Embedded Systems - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "465590",
+    "name": "Robotics: Advanced",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Robotics: Advanced - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "490150",
+    "name": "Unmanned Aerial Systems",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Unmanned Aerial Systems - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "490170",
+    "name": "Unmanned Aerial Systems II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Unmanned Aerial Systems II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "490180",
+    "name": "Unmanned Aerial Systems III",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Unmanned Aerial Systems III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493081",
+    "name": "Family & Consumer Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Family & Consumer Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493110",
+    "name": "Food Safety & Nutrition",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Food Safety & Nutrition - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493200",
+    "name": "Nutrition Science I",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Nutrition Science I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493130",
+    "name": "Nutrition Science II",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Nutrition Science II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493260",
+    "name": "Culinary & Restaurant Management I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Culinary & Restaurant Management I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493270",
+    "name": "Culinary & Restaurant Management II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Culinary & Restaurant Management II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "592020",
+    "name": "NWACC CHED 2033 Child Growth & Development",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC CHED 2033 Child Growth & Development - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493680",
+    "name": "Introduction to Digital Arts",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Introduction to Digital Arts - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494150",
+    "name": "Digital Design I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Digital Design I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494170",
+    "name": "Digital Design II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Digital Design II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493420",
+    "name": "Digital Media I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Digital Media I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493430",
+    "name": "Digital Media II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Digital Media II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493670",
+    "name": "Digital Media Lab",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Digital Media Lab - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495350",
+    "name": "Introduction to Health Care",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Introduction to Health Care - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495360",
+    "name": "Medical Terminology",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Medical Terminology - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494140",
+    "name": "Emergency Medical Responder",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Emergency Medical Responder - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494080",
+    "name": "Exercise Science",
+    "department": "Science",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Exercise Science - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "494071",
+    "name": "Sports Medicine Injury Assessment",
+    "department": "PE/Health",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Sports Medicine Injury Assessment - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493960",
+    "name": "Introduction to Engineering PLTW",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Introduction to Engineering PLTW - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493970",
+    "name": "Engineering II PLTW",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Engineering II PLTW - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493980",
+    "name": "Engineering Capstone PLTW",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Engineering Capstone PLTW - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495850",
+    "name": "Navy JROTC I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Navy JROTC I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495860",
+    "name": "Navy JROTC II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Navy JROTC II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495870",
+    "name": "Navy JROTC III",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Navy JROTC III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "495910",
+    "name": "Navy JROTC IV",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Navy JROTC IV - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493780",
+    "name": "JAG I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "JAG I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493790",
+    "name": "JAG II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "JAG II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "493700",
+    "name": "JAG Work-Based Learning",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "JAG Work-Based Learning - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "TRKTCH",
+    "name": "Medium/Heavy Duty Truck Tech",
+    "department": "CTE",
+    "credits": 4.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Medium/Heavy Duty Truck Tech - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "DENTAL",
+    "name": "Dental Assisting",
+    "department": "CTE",
+    "credits": 3.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Dental Assisting - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "453030",
+    "name": "Music Appreciation",
+    "department": "Fine Arts",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Music Appreciation - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "453130",
+    "name": "Theatre Appreciation",
+    "department": "Fine Arts",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre Appreciation - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "453100",
+    "name": "Visual Art Appreciation",
+    "department": "Fine Arts",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Visual Art Appreciation - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "55900V",
+    "name": "NWACC ECE Art Appreciation Online",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "NWACC ECE Art Appreciation Online - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450100",
+    "name": "Pre-AP Visual Arts",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP Visual Arts - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450001",
+    "name": "Visual Art Foundations I",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Visual Art Foundations I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450031",
+    "name": "Visual Art Foundations II",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Visual Art Foundations II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450041",
+    "name": "Visual Art Foundations III",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Visual Art Foundations III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450500",
+    "name": "Ceramics I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Ceramics I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450510",
+    "name": "Ceramics II",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Ceramics II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "450600",
+    "name": "Sculpture",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Sculpture - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559031",
+    "name": "AP Art History",
+    "department": "Social Studies",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Art History - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559041",
+    "name": "AP Drawing",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Drawing - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559050",
+    "name": "AP 2-D Art and Design",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP 2-D Art and Design - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559061",
+    "name": "AP 3-D Art and Design",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP 3-D Art and Design - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559820",
+    "name": "IB Visual Arts SL",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Visual Arts SL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459150",
+    "name": "Pre-AP Theatre",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Pre-AP Theatre - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459100",
+    "name": "Theatre I",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459110",
+    "name": "Theatre II",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459120",
+    "name": "Theatre III",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459130",
+    "name": "Theatre IV",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre IV - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559120",
+    "name": "IB Theatre I HL",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      11
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Theatre I HL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559121",
+    "name": "IB Theatre II HL",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": true,
+    "description": "IB Theatre II HL - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459140",
+    "name": "Theatrical Makeup",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatrical Makeup - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459280",
+    "name": "Costume Design I",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Costume Design I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459240",
+    "name": "Technical Theatre I",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Technical Theatre I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459250",
+    "name": "Technical Theatre II",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Technical Theatre II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459260",
+    "name": "Technical Theatre III",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Technical Theatre III - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459400",
+    "name": "Theatre Production & Management I",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre Production & Management I - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459401",
+    "name": "Theatre Production & Management II",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Theatre Production & Management II - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "45200M",
+    "name": "Choir Advanced 9 \u2013 Tenor-Bass",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Choir Advanced 9 \u2013 Tenor-Bass - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "45200W",
+    "name": "Choir Advanced 9 - Treble",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": true,
+    "isDualEnrollment": false,
+    "description": "Choir Advanced 9 - Treble - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "452043",
+    "name": "Sophomore Select",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      10
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Sophomore Select - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "451500",
+    "name": "Music Lab I (Guitar)",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Music Lab I (Guitar) - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "459010",
+    "name": "Music Theory",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Music Theory - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "559011",
+    "name": "AP Music Theory",
+    "department": "Fine Arts",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": true,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "AP Music Theory - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "496010",
+    "name": "Community Service Learning",
+    "department": "CTE",
+    "credits": 1.0,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Community Service Learning - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "999830",
+    "name": "Student Aide",
+    "department": "CTE",
+    "credits": 0.0,
+    "gradeLevel": [
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Student Aide - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "480000",
+    "name": "Health",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Health - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "4850210",
+    "name": "Physical Education",
+    "department": "PE/Health",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Physical Education - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "485020",
+    "name": "Rec Sports: Life Fitness & Conditioning",
+    "department": "PE/Health",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Rec Sports: Life Fitness & Conditioning - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "485020A",
+    "name": "Rec Sports: Aerobics",
+    "department": "PE/Health",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Rec Sports: Aerobics - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "4850130",
+    "name": "Outdoor Pursuits PE",
+    "department": "PE/Health",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Outdoor Pursuits PE - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "48504X",
+    "name": "Athletic Weight Training for GTSB",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Athletic Weight Training for GTSB - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "485950",
+    "name": "Navy JROTC PE",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Navy JROTC PE - Official Bentonville HS 2026-2027 Course."
+  },
+  {
+    "id": "480950",
+    "name": "Navy JROTC Health",
+    "department": "CTE",
+    "credits": 0.5,
+    "gradeLevel": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "prerequisites": [],
+    "isAP": false,
+    "isHonors": false,
+    "isDualEnrollment": false,
+    "description": "Navy JROTC Health - Official Bentonville HS 2026-2027 Course."
+  }
+]
