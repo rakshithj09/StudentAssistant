@@ -7,6 +7,7 @@ function AuthPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [googleSubmitting, setGoogleSubmitting] = useState(false);
 
   const handleEmailSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -26,11 +27,13 @@ function AuthPage() {
 
   const handleGoogleSignIn = async () => {
     setSubmitting(true);
+    setGoogleSubmitting(true);
     try {
       await signInWithGoogle();
     } catch {
       // AuthContext turns Firebase errors into user-facing form text.
     } finally {
+      setGoogleSubmitting(false);
       setSubmitting(false);
     }
   };
@@ -40,10 +43,11 @@ function AuthPage() {
       <section className="auth-card" aria-labelledby="auth-title">
         <img className="auth-brand-mark" src="/favicon.svg" alt="" />
         <h1 id="auth-title" className="font-serif">Bentonville Student Assistant</h1>
-        <p className="text-secondary">Sign in to save your planner profile to your Firebase account.</p>
+        <p className="text-secondary">Sign in to save your planner profile to your  account.</p>
 
         <button type="button" className="google-btn" onClick={handleGoogleSignIn} disabled={submitting}>
-          Continue with Google
+          <span className="google-mark" aria-hidden="true">G</span>
+          <span>{googleSubmitting ? 'Opening Google...' : 'Continue with Google'}</span>
         </button>
 
         <div className="auth-divider"><span>or</span></div>

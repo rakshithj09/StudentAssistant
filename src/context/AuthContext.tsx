@@ -1,4 +1,3 @@
-import { FirebaseError } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -23,12 +22,36 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+interface AuthErrorDetails {
+  code: string;
+  message?: string;
+}
+
+const readAuthError = (error: unknown): AuthErrorDetails | null => {
+  if (typeof error !== 'object' || error === null) {
+    return null;
+  }
+
+  const errorRecord = error as { code?: unknown; message?: unknown };
+  const codeFromProperty = typeof errorRecord.code === 'string' ? errorRecord.code : '';
+  const message = typeof errorRecord.message === 'string' ? errorRecord.message : undefined;
+  const codeFromMessage = message?.match(/\((auth\/[^)]+)\)/)?.[1] ?? '';
+  const code = codeFromProperty || codeFromMessage;
+
+  return code ? { code, message } : null;
+};
+
 const getAuthMessage = (error: unknown): string => {
-  if (!(error instanceof FirebaseError)) {
+  const authError = readAuthError(error);
+
+  if (!authError) {
+    if (import.meta.env.DEV) {
+      console.error('Unknown auth failure', error);
+    }
     return 'Authentication failed. Try again.';
   }
 
-  switch (error.code) {
+  switch (authError.code) {
     case 'auth/email-already-in-use':
       return 'An account already exists for that email.';
     case 'auth/invalid-credential':
@@ -37,6 +60,7 @@ const getAuthMessage = (error: unknown): string => {
       return 'Email or password is incorrect.';
     case 'auth/popup-closed-by-user':
       return 'Google sign-in was closed before it finished.';
+    case 'auth/configuration-not-found':
     case 'auth/operation-not-allowed':
       return 'Google sign-in is not enabled yet. In Firebase Console, enable Authentication > Sign-in method > Google.';
     case 'auth/unauthorized-domain':
@@ -51,7 +75,10 @@ const getAuthMessage = (error: unknown): string => {
     case 'auth/weak-password':
       return 'Use a password with at least 6 characters.';
     default:
-      return `Authentication failed (${error.code}). Check your Firebase setup and try again.`;
+      if (import.meta.env.DEV) {
+        console.error('Unhandled Firebase auth failure', authError, error);
+      }
+      return `Authentication failed (${authError.code}). Check your Firebase setup and try again.`;
   }
 };
 
