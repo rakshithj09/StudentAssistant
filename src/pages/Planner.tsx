@@ -144,7 +144,7 @@ function Planner() {
     if (student.schoolPathway === 'public_all') {
       return (
         <div className="navy-card mb-4" style={{padding: '1.5rem'}}>
-          <div className="text-xs text-orange mb-2">SSP STRATEGY NOTE · BENTONVILLE USD FULL PUBLIC PATHWAY</div>
+          <div className="text-xs text-orange mb-2">SSP STRATEGY NOTE · BENTONVILLE SD FULL PUBLIC PATHWAY</div>
           <p className="text-sm" style={{lineHeight: '1.5'}}>
             You are pursuing the <strong>Full Public School Pathway</strong> at <strong>{getPublicSchoolName()}</strong>. Make sure to leverage Pre-AP math in 8th/9th grade.
           </p>

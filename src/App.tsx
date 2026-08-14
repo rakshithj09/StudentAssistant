@@ -45,7 +45,7 @@ function AppContent() {
 
       <footer className="app-footer">
         <div>Bentonville Student Assistant</div>
-        <div>Serving Bentonville USD · Haas Hall Academy · NWA Community College</div>
+        <div>Serving Bentonville SD · Haas Hall Academy</div>
       </footer>
     </div>
   );

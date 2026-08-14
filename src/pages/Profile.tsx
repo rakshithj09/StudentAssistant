@@ -126,7 +126,7 @@ function Profile() {
               />
               <div>
                 <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>Public School (All 7th-12th Years)</div>
-                <div className="text-secondary text-sm">Attend Bentonville USD public schools ({student.publicTarget === 'bhs' ? 'BHS' : 'BWHS'}) for all junior high and high school years.</div>
+                <div className="text-secondary text-sm">Attend Bentonville SD public schools ({student.publicTarget === 'bhs' ? 'BHS' : 'BWHS'}) for all junior high and high school years.</div>
               </div>
             </label>
           </div>
